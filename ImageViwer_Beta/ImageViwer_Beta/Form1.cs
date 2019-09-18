@@ -16,5 +16,28 @@ namespace ImageViwer_Beta
         {
             InitializeComponent();
         }
+
+        private void PictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_PicOpen_Click(object sender, EventArgs e)
+        {
+            OpenFile_Image.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpenFile_Image_FileOk(object sender, CancelEventArgs e)
+        {
+            this.OpenFile_Image = new System.Windows.Forms.OpenFileDialog();
+            
+        }
+
+        
     }
 }
