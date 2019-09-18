@@ -15,29 +15,45 @@ namespace ImageViwer_Beta
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void PictureBox_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                PictureBox Picture = new PictureBox();
+                Picture.ImageLocation = open.FileName;
+                
+            }
         }
 
         private void Button_PicOpen_Click(object sender, EventArgs e)
         {
-            OpenFile_Image.ShowDialog();
-        }
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                PictureBox.Image = new Bitmap(open.FileName);
+                // image file path  
+                textBox1.Text = open.FileName;
+            }  
+
+
+            //open.Dispose();
+        }   
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void OpenFile_Image_FileOk(object sender, CancelEventArgs e)
-        {
-            this.OpenFile_Image = new System.Windows.Forms.OpenFileDialog();
-            
-        }
-
+        
         
     }
 }
