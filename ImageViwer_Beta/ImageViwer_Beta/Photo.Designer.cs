@@ -36,6 +36,9 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Location = new System.Drawing.Point(0, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
@@ -62,6 +65,7 @@
             this.Controls.Add(this.Picture_Panel);
             this.Name = "Photo";
             this.Text = "Photo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Photo_FormClosing);
             this.Load += new System.EventHandler(this.Photo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Picture_Panel.ResumeLayout(false);

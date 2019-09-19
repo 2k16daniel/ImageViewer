@@ -24,14 +24,21 @@ namespace ImageViwer_Beta
                 this.pictureBox1.Image = value;
                 this.pictureBox1.Size = value.Size;
             }
+
+        }
+
+        private void Photo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+
+            }
         }
 
         private void Photo_Load(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null)
-            {
-                //pictureBox1.Dispose();
-            }
+           
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -48,5 +55,7 @@ namespace ImageViwer_Beta
         {
 
         }
+
+        
     }
 }

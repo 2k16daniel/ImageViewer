@@ -37,7 +37,8 @@
             // 
             // Button_PicOpen
             // 
-            this.Button_PicOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button_PicOpen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Button_PicOpen.Location = new System.Drawing.Point(405, 356);
             this.Button_PicOpen.Name = "Button_PicOpen";
             this.Button_PicOpen.Size = new System.Drawing.Size(75, 32);
@@ -50,19 +51,20 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "thumbnail.png");
+            this.imageList1.Images.SetKeyName(0, "iconfinder_file__jpg__jpeg__image__3209611.png");
             // 
             // ImageListview
             // 
             this.ImageListview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImageListview.LargeImageList = this.imageList1;
             this.ImageListview.Location = new System.Drawing.Point(-1, -3);
             this.ImageListview.Name = "ImageListview";
             this.ImageListview.Size = new System.Drawing.Size(892, 353);
             this.ImageListview.TabIndex = 2;
             this.ImageListview.UseCompatibleStateImageBehavior = false;
-            this.ImageListview.ItemActivate += new System.EventHandler(this.ImageList_SelectedIndexChanged);
+            this.ImageListview.ItemActivate += new System.EventHandler(this.ImageListview_ItemActivate);
             this.ImageListview.SelectedIndexChanged += new System.EventHandler(this.ImageList_SelectedIndexChanged);
             // 
             // Form1
@@ -84,8 +86,8 @@
         #endregion
 
         private System.Windows.Forms.Button Button_PicOpen;
-        public System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ListView ImageListview;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

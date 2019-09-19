@@ -26,7 +26,9 @@ namespace ImageViwer_Beta
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            open.Multiselect = true;
+            open.ValidateNames = true;
             if (open.ShowDialog() == DialogResult.OK)
             {
                 imagelist.Clear();
@@ -50,6 +52,11 @@ namespace ImageViwer_Beta
         }
 
         private void ImageList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void ImageListview_ItemActivate(object sender, EventArgs e)
         {
             if (ImageListview.FocusedItem != null)
             {
