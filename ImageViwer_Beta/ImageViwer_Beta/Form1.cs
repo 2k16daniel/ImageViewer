@@ -56,7 +56,8 @@ namespace ImageViwer_Beta
                 using (Photo phto = new Photo())
                 {
                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
-
+                    phto.imagebox = img;
+                    phto.ShowDialog();
 
                 }
             }
