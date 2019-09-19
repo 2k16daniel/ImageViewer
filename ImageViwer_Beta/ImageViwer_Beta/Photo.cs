@@ -30,11 +30,21 @@ namespace ImageViwer_Beta
         {
             if (pictureBox1.Image != null)
             {
-                pictureBox1.Dispose();
+                //pictureBox1.Dispose();
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Picture_Panel_Paint(object sender, PaintEventArgs e)
         {
 
         }

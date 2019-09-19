@@ -37,7 +37,8 @@
             // 
             // Button_PicOpen
             // 
-            this.Button_PicOpen.Location = new System.Drawing.Point(400, 356);
+            this.Button_PicOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button_PicOpen.Location = new System.Drawing.Point(405, 356);
             this.Button_PicOpen.Name = "Button_PicOpen";
             this.Button_PicOpen.Size = new System.Drawing.Size(75, 32);
             this.Button_PicOpen.TabIndex = 1;
@@ -53,6 +54,9 @@
             // 
             // ImageListview
             // 
+            this.ImageListview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ImageListview.Location = new System.Drawing.Point(-1, -3);
             this.ImageListview.Name = "ImageListview";
             this.ImageListview.Size = new System.Drawing.Size(892, 353);

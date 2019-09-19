@@ -41,6 +41,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // Picture_Panel
             // 
@@ -51,6 +52,7 @@
             this.Picture_Panel.Name = "Picture_Panel";
             this.Picture_Panel.Size = new System.Drawing.Size(642, 381);
             this.Picture_Panel.TabIndex = 0;
+            this.Picture_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Picture_Panel_Paint);
             // 
             // Photo
             // 
@@ -58,7 +60,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 381);
             this.Controls.Add(this.Picture_Panel);
-            this.MaximizeBox = false;
             this.Name = "Photo";
             this.Text = "Photo";
             this.Load += new System.EventHandler(this.Photo_Load);
