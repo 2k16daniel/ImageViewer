@@ -38,9 +38,7 @@ namespace ImageViwer_Beta
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
             {
-                // display image in picture box  
-                PictureBox.Image = new Bitmap(open.FileName);
-                // image file path  
+                
                 
             }  
 
