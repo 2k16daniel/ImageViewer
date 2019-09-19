@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.Button_PicOpen = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ImageList = new System.Windows.Forms.ListView();
+            this.ImageListview = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // Button_PicOpen
@@ -50,13 +50,15 @@
             this.imageList1.ImageSize = new System.Drawing.Size(64, 64);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // ImageList
+            // ImageListview
             // 
-            this.ImageList.Location = new System.Drawing.Point(-1, -3);
-            this.ImageList.Name = "ImageList";
-            this.ImageList.Size = new System.Drawing.Size(892, 353);
-            this.ImageList.TabIndex = 2;
-            this.ImageList.UseCompatibleStateImageBehavior = false;
+            this.ImageListview.Location = new System.Drawing.Point(-1, -3);
+            this.ImageListview.Name = "ImageListview";
+            this.ImageListview.Size = new System.Drawing.Size(892, 353);
+            this.ImageListview.TabIndex = 2;
+            this.ImageListview.UseCompatibleStateImageBehavior = false;
+            this.ImageListview.ItemActivate += new System.EventHandler(this.ImageList_SelectedIndexChanged);
+            this.ImageListview.SelectedIndexChanged += new System.EventHandler(this.ImageList_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -65,7 +67,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(888, 456);
-            this.Controls.Add(this.ImageList);
+            this.Controls.Add(this.ImageListview);
             this.Controls.Add(this.Button_PicOpen);
             this.Name = "Form1";
             this.Text = "Image Viewer";
@@ -78,7 +80,7 @@
 
         private System.Windows.Forms.Button Button_PicOpen;
         public System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ListView ImageList;
+        private System.Windows.Forms.ListView ImageListview;
     }
 }
 
