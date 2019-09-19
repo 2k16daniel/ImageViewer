@@ -41,7 +41,7 @@ namespace ImageViwer_Beta
                 // display image in picture box  
                 PictureBox.Image = new Bitmap(open.FileName);
                 // image file path  
-                textBox1.Text = open.FileName;
+                
             }  
 
 
