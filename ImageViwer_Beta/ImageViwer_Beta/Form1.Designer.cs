@@ -42,9 +42,9 @@
             // 
             this.Button_PicOpen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_PicOpen.Location = new System.Drawing.Point(34, 356);
+            this.Button_PicOpen.Location = new System.Drawing.Point(53, 357);
             this.Button_PicOpen.Name = "Button_PicOpen";
-            this.Button_PicOpen.Size = new System.Drawing.Size(75, 32);
+            this.Button_PicOpen.Size = new System.Drawing.Size(110, 32);
             this.Button_PicOpen.TabIndex = 1;
             this.Button_PicOpen.Text = "OPEN";
             this.Button_PicOpen.UseVisualStyleBackColor = true;
@@ -54,16 +54,16 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "iconfinder_file__jpg__jpeg__image__3209611.png");
+            this.imageList1.Images.SetKeyName(0, "bg2.png");
             // 
             // ImageListview
             // 
             this.ImageListview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ImageListview.LargeImageList = this.imageList1;
-            this.ImageListview.Location = new System.Drawing.Point(0, 12);
+            this.ImageListview.Location = new System.Drawing.Point(12, 12);
             this.ImageListview.Name = "ImageListview";
-            this.ImageListview.Size = new System.Drawing.Size(275, 338);
+            this.ImageListview.Size = new System.Drawing.Size(201, 339);
             this.ImageListview.TabIndex = 2;
             this.ImageListview.UseCompatibleStateImageBehavior = false;
             this.ImageListview.ItemActivate += new System.EventHandler(this.ImageListview_ItemActivate);
@@ -74,7 +74,7 @@
             this.bttn_fullsize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bttn_fullsize.AutoSize = true;
             this.bttn_fullsize.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.bttn_fullsize.Location = new System.Drawing.Point(551, 356);
+            this.bttn_fullsize.Location = new System.Drawing.Point(499, 384);
             this.bttn_fullsize.Name = "bttn_fullsize";
             this.bttn_fullsize.Size = new System.Drawing.Size(114, 23);
             this.bttn_fullsize.TabIndex = 5;
@@ -84,9 +84,9 @@
             // 
             // MainPictureBox
             // 
-            this.MainPictureBox.Location = new System.Drawing.Point(291, 12);
+            this.MainPictureBox.Location = new System.Drawing.Point(225, 12);
             this.MainPictureBox.Name = "MainPictureBox";
-            this.MainPictureBox.Size = new System.Drawing.Size(585, 338);
+            this.MainPictureBox.Size = new System.Drawing.Size(686, 366);
             this.MainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MainPictureBox.TabIndex = 6;
             this.MainPictureBox.TabStop = false;
@@ -95,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 456);
+            this.ClientSize = new System.Drawing.Size(923, 457);
             this.Controls.Add(this.MainPictureBox);
             this.Controls.Add(this.bttn_fullsize);
             this.Controls.Add(this.ImageListview);
@@ -106,6 +106,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Image Viewer";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).EndInit();
             this.ResumeLayout(false);

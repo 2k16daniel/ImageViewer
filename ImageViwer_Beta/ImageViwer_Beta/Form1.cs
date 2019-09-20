@@ -17,9 +17,10 @@ namespace ImageViwer_Beta
         public Form1()
         {
             InitializeComponent();
-            
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
-        
+
 
         private void Button_PicOpen_Click(object sender, EventArgs e)
         {
@@ -40,12 +41,12 @@ namespace ImageViwer_Beta
                     imagelist.Add(imginfo.FullName);
                     ImageListview.Items.Add(imginfo.Name, 0);
                 }
-                
-            }  
+
+            }
 
 
             //open.Dispose();
-        }   
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -54,26 +55,32 @@ namespace ImageViwer_Beta
 
         private void ImageList_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void ImageListview_ItemActivate(object sender, EventArgs e)
         {
             if (ImageListview.FocusedItem != null)
             {
-               /* using (Photo phto = new Photo())
+                /* using (Photo phto = new Photo())
+                 {
+                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
+                     phto.imagebox = img;
+                     phto.ShowDialog();
+
+                 } */
+                try
                 {
                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
-                    phto.imagebox = img;
-                    phto.ShowDialog();
-
-                } */
-               
-
-                    Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
-                    
                     photobox = img;
-                
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information
+                    );
+                }
+
             }
         }
 
@@ -82,12 +89,12 @@ namespace ImageViwer_Beta
 
             if (ImageListview.FocusedItem != null)
             {
-                               
+
             }
         }
         public Image photobox
         {
-            
+
             set
             {
                 this.MainPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -100,29 +107,39 @@ namespace ImageViwer_Beta
         {
             if (ImageListview.FocusedItem != null)
             {
-                 using (Photo phto = new Photo())
-                 {
-                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
-                     phto.imagebox = img;
-                     phto.ShowDialog();
+                try
+                {
+                    using (Photo phto = new Photo())
+                    {
+                        Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
+                        phto.imagebox = img;
+                        phto.ShowDialog();
 
-                 }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information
+                    );
+
+                }
             }
-        }
 
-        /* Usless code , save this for reference!!
+            /* Usless code , save this for reference!!
         
-         * private void PictureBox_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
-            if (open.ShowDialog() == DialogResult.OK)
+             * private void PictureBox_Click(object sender, EventArgs e)
             {
-                PictureBox Picture = new PictureBox();
-                Picture.ImageLocation = open.FileName;
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    PictureBox Picture = new PictureBox();
+                    Picture.ImageLocation = open.FileName;
                 
-            }
-        } */
-        
+                }
+            } */
+
+        }
     }
 }
