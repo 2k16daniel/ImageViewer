@@ -33,13 +33,16 @@
             this.Button_PicOpen = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ImageListview = new System.Windows.Forms.ListView();
+            this.bttn_fullsize = new System.Windows.Forms.Button();
+            this.MainPictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Button_PicOpen
             // 
             this.Button_PicOpen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_PicOpen.Location = new System.Drawing.Point(405, 356);
+            this.Button_PicOpen.Location = new System.Drawing.Point(34, 356);
             this.Button_PicOpen.Name = "Button_PicOpen";
             this.Button_PicOpen.Size = new System.Drawing.Size(75, 32);
             this.Button_PicOpen.TabIndex = 1;
@@ -55,31 +58,58 @@
             // 
             // ImageListview
             // 
-            this.ImageListview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImageListview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ImageListview.LargeImageList = this.imageList1;
-            this.ImageListview.Location = new System.Drawing.Point(-1, -3);
+            this.ImageListview.Location = new System.Drawing.Point(0, 12);
             this.ImageListview.Name = "ImageListview";
-            this.ImageListview.Size = new System.Drawing.Size(892, 353);
+            this.ImageListview.Size = new System.Drawing.Size(275, 338);
             this.ImageListview.TabIndex = 2;
             this.ImageListview.UseCompatibleStateImageBehavior = false;
             this.ImageListview.ItemActivate += new System.EventHandler(this.ImageListview_ItemActivate);
             this.ImageListview.SelectedIndexChanged += new System.EventHandler(this.ImageList_SelectedIndexChanged);
             // 
+            // bttn_fullsize
+            // 
+            this.bttn_fullsize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bttn_fullsize.AutoSize = true;
+            this.bttn_fullsize.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bttn_fullsize.Location = new System.Drawing.Point(551, 356);
+            this.bttn_fullsize.Name = "bttn_fullsize";
+            this.bttn_fullsize.Size = new System.Drawing.Size(114, 23);
+            this.bttn_fullsize.TabIndex = 5;
+            this.bttn_fullsize.Text = "View in fullsize mode";
+            this.bttn_fullsize.UseVisualStyleBackColor = true;
+            this.bttn_fullsize.Click += new System.EventHandler(this.bttn_fullsize_Click);
+            // 
+            // MainPictureBox
+            // 
+            this.MainPictureBox.Location = new System.Drawing.Point(291, 12);
+            this.MainPictureBox.Name = "MainPictureBox";
+            this.MainPictureBox.Size = new System.Drawing.Size(585, 338);
+            this.MainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MainPictureBox.TabIndex = 6;
+            this.MainPictureBox.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(888, 456);
+            this.Controls.Add(this.MainPictureBox);
+            this.Controls.Add(this.bttn_fullsize);
             this.Controls.Add(this.ImageListview);
             this.Controls.Add(this.Button_PicOpen);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Image Viewer";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -88,6 +118,8 @@
         private System.Windows.Forms.Button Button_PicOpen;
         private System.Windows.Forms.ListView ImageListview;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button bttn_fullsize;
+        private System.Windows.Forms.PictureBox MainPictureBox;
     }
 }
 

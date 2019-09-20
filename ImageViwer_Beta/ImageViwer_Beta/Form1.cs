@@ -27,6 +27,7 @@ namespace ImageViwer_Beta
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             open.Multiselect = true;
             open.ValidateNames = true;
             if (open.ShowDialog() == DialogResult.OK)
@@ -60,13 +61,52 @@ namespace ImageViwer_Beta
         {
             if (ImageListview.FocusedItem != null)
             {
-                using (Photo phto = new Photo())
+               /* using (Photo phto = new Photo())
                 {
                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
                     phto.imagebox = img;
                     phto.ShowDialog();
 
-                }
+                } */
+               
+
+                    Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
+                    
+                    photobox = img;
+                
+            }
+        }
+
+        private void Main_Picturebox_Click(object sender, EventArgs e)
+        {
+
+            if (ImageListview.FocusedItem != null)
+            {
+                               
+            }
+        }
+        public Image photobox
+        {
+            
+            set
+            {
+                this.MainPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                this.MainPictureBox.Image = value;
+                //this.MainPictureBox.Size = value.Size;
+            }
+        }
+
+        private void bttn_fullsize_Click(object sender, EventArgs e)
+        {
+            if (ImageListview.FocusedItem != null)
+            {
+                 using (Photo phto = new Photo())
+                 {
+                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
+                     phto.imagebox = img;
+                     phto.ShowDialog();
+
+                 }
             }
         }
 
