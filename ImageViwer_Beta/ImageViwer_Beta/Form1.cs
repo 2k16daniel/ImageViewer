@@ -19,10 +19,7 @@ namespace ImageViwer_Beta
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-
         }
-
-
         private void Button_PicOpen_Click(object sender, EventArgs e)
         {
             // open file dialog   
@@ -42,10 +39,7 @@ namespace ImageViwer_Beta
                     imagelist.Add(imginfo.FullName);
                     ImageListview.Items.Add(imginfo.Name, 0);
                 }
-
             }
-
-
             //open.Dispose();
         }
 
@@ -84,7 +78,6 @@ namespace ImageViwer_Beta
 
             }
         }
-
         private void Main_Picturebox_Click(object sender, EventArgs e)
         {
 
@@ -95,7 +88,6 @@ namespace ImageViwer_Beta
         }
         public Image photobox
         {
-
             set
             {
                 this.MainPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -103,7 +95,6 @@ namespace ImageViwer_Beta
                 //this.MainPictureBox.Size = value.Size;
             }
         }
-
         private void bttn_fullsize_Click(object sender, EventArgs e)
         {
             if (ImageListview.FocusedItem != null)
@@ -123,10 +114,8 @@ namespace ImageViwer_Beta
                     MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information
                     );
-
                 }
             }
-
             /* Usless code , save this for reference!!
         
              * private void PictureBox_Click(object sender, EventArgs e)
@@ -140,25 +129,19 @@ namespace ImageViwer_Beta
                 
                 }
             } */
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string fileinfoName = "";
             string FileTagName = "";
             string FileDiscription = "";
-
-            
                     var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
                     foreach (var directory in directories)
                         foreach (var tag in directory.Tags)
-                            Console.WriteLine(String.Format( directory.Name +   tag.Name   + tag.Description ));
+                            MessageBox.Show(String.Format(directory.Name.ToString() + Environment.NewLine + tag.Name.ToString() + Environment.NewLine + tag.Description.ToString()));
                             //fileinfoName = string.Format(directory.Name + tag.Name + tag.Description);
                            // FileTagName = string.Format(
-                            
-                   //MessageBox.Show(fileinfoName);
+                            //MessageBox.Show(fileinfoName);
             }
         }
     }
-
