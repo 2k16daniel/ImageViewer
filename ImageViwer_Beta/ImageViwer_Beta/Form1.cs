@@ -145,13 +145,19 @@ namespace ImageViwer_Beta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string fileinfo = "";
+            string fileinfoName = "";
+            string FileTagName = "";
+            string FileDiscription = "";
+
+            
                     var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
                     foreach (var directory in directories)
                         foreach (var tag in directory.Tags)
-                            fileinfo = string.Format(directory.Name);
-                            //Console.WriteLine(String.Format(directory.Name));
-                    Console.WriteLine(fileinfo);
+                            Console.WriteLine(String.Format( directory.Name +   tag.Name   + tag.Description ));
+                            //fileinfoName = string.Format(directory.Name + tag.Name + tag.Description);
+                           // FileTagName = string.Format(
+                            
+                   //MessageBox.Show(fileinfoName);
             }
         }
     }
