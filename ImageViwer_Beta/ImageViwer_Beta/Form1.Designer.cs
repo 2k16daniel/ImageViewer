@@ -35,6 +35,7 @@
             this.ImageListview = new System.Windows.Forms.ListView();
             this.bttn_fullsize = new System.Windows.Forms.Button();
             this.MainPictureBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             // 
             this.Button_PicOpen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_PicOpen.Location = new System.Drawing.Point(74, 357);
+            this.Button_PicOpen.Location = new System.Drawing.Point(12, 357);
             this.Button_PicOpen.Name = "Button_PicOpen";
             this.Button_PicOpen.Size = new System.Drawing.Size(67, 26);
             this.Button_PicOpen.TabIndex = 1;
@@ -74,7 +75,7 @@
             this.bttn_fullsize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bttn_fullsize.AutoSize = true;
             this.bttn_fullsize.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.bttn_fullsize.Location = new System.Drawing.Point(105, 430);
+            this.bttn_fullsize.Location = new System.Drawing.Point(114, 430);
             this.bttn_fullsize.Name = "bttn_fullsize";
             this.bttn_fullsize.Size = new System.Drawing.Size(114, 23);
             this.bttn_fullsize.TabIndex = 5;
@@ -91,11 +92,23 @@
             this.MainPictureBox.TabIndex = 6;
             this.MainPictureBox.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(173, 401);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(46, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Info";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 457);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.MainPictureBox);
             this.Controls.Add(this.bttn_fullsize);
             this.Controls.Add(this.ImageListview);
@@ -121,6 +134,7 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button bttn_fullsize;
         private System.Windows.Forms.PictureBox MainPictureBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 

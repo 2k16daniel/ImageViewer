@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetadataExtractor;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -140,6 +141,32 @@ namespace ImageViwer_Beta
                 }
             } */
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ImageListview.FocusedItem != null)
+            {
+                /* using (Photo phto = new Photo())
+                 {
+                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
+                     phto.imagebox = img;
+                     phto.ShowDialog();
+
+                 } */
+                try
+                {
+                    Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
+                    photobox = img;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information
+                    );
+                }
+
+            }
         }
     }
 }
