@@ -145,36 +145,14 @@ namespace ImageViwer_Beta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ImageListview.FocusedItem != null)
-            {
-                /* using (Photo phto = new Photo())
-                 {
-                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
-                     phto.imagebox = img;
-                     phto.ShowDialog();
-
-                 } */
-                
-                
-                    Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
+            string fileinfo = "";
                     var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
                     foreach (var directory in directories)
-                    {
                         foreach (var tag in directory.Tags)
-                            Console.WriteLine(String.Format(directory.Name));
-                            
-
-                        if (directory.HasError)
-                        {
-                            foreach (var error in directory.Errors)
-                                Console.WriteLine("ERROR: {error}");
-                            //Console.WriteLine(String.Format("Downloaded my-file.txt with content:{0}", content));
-                        }
-                    }
-                
-               
-
+                            fileinfo = string.Format(directory.Name);
+                            //Console.WriteLine(String.Format(directory.Name));
+                    Console.WriteLine(fileinfo);
             }
         }
     }
-}
+
