@@ -154,17 +154,25 @@ namespace ImageViwer_Beta
                      phto.ShowDialog();
 
                  } */
-                try
-                {
+                
+                
                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
-                    photobox = img;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information
-                    );
-                }
+                    var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
+                    foreach (var directory in directories)
+                    {
+                        foreach (var tag in directory.Tags)
+                            Console.WriteLine(String.Format(directory.Name));
+                            
+
+                        if (directory.HasError)
+                        {
+                            foreach (var error in directory.Errors)
+                                Console.WriteLine("ERROR: {error}");
+                            //Console.WriteLine(String.Format("Downloaded my-file.txt with content:{0}", content));
+                        }
+                    }
+                
+               
 
             }
         }
