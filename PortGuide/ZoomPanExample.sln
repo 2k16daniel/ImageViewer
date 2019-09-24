@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoomPanExample", "ZoomPanExample.csproj", "{BF5F61AE-9CD0-4B47-A120-73E3FB6704D0}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BF5F61AE-9CD0-4B47-A120-73E3FB6704D0}.Debug.ActiveCfg = Debug|.NET
+		{BF5F61AE-9CD0-4B47-A120-73E3FB6704D0}.Debug.Build.0 = Debug|.NET
+		{BF5F61AE-9CD0-4B47-A120-73E3FB6704D0}.Release.ActiveCfg = Release|.NET
+		{BF5F61AE-9CD0-4B47-A120-73E3FB6704D0}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		ZoomPanControl.html = ZoomPanControl.html
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
