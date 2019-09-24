@@ -85,12 +85,14 @@
             // 
             // MainPictureBox
             // 
+            this.MainPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MainPictureBox.Location = new System.Drawing.Point(225, 12);
             this.MainPictureBox.Name = "MainPictureBox";
             this.MainPictureBox.Size = new System.Drawing.Size(697, 441);
             this.MainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MainPictureBox.TabIndex = 6;
             this.MainPictureBox.TabStop = false;
+            this.MainPictureBox.Click += new System.EventHandler(this.MainPictureBox_Click);
             // 
             // button1
             // 

@@ -19,6 +19,22 @@ namespace ImageViwer_Beta
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MainPictureBox.MouseWheel += MainPictureBox_MouseWheel;
+        }
+
+        void MainPictureBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                MainPictureBox.Width = MainPictureBox.Width + 50;
+                MainPictureBox.Height = MainPictureBox.Height + 50;
+            }
+            else
+            {
+                MainPictureBox.Width = MainPictureBox.Width - 50;
+                MainPictureBox.Width = MainPictureBox.Height - 50;
+            }
+            //throw new NotImplementedException();
         }
         private void Button_PicOpen_Click(object sender, EventArgs e)
         {
@@ -143,5 +159,10 @@ namespace ImageViwer_Beta
                            // FileTagName = string.Format(
                             //MessageBox.Show(fileinfoName);
             }
+
+        private void MainPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
         }
     }
