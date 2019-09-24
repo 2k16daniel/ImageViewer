@@ -12,10 +12,29 @@ namespace ImageViwer_Beta
 {
     public partial class Photo : Form
     {
+ 
         public Photo()
         {
             InitializeComponent();
+            this.pictureBox1.MouseWheel += pictureBox1_MouseWheel;
         }
+
+        private void pictureBox1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                pictureBox1.Width = pictureBox1.Width + 50;
+                pictureBox1.Height = pictureBox1.Height + 50;
+            }
+            else
+            {
+                pictureBox1.Width = pictureBox1.Width - 50;
+                pictureBox1.Width = pictureBox1.Height - 50;
+            }
+        }
+
+
+        Image imgoriginal;
 
         public Image imagebox
         {
@@ -40,7 +59,7 @@ namespace ImageViwer_Beta
            
             
         }
-
+        
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -55,6 +74,13 @@ namespace ImageViwer_Beta
         {
 
         }
+        Image Zoom(Image img, Image size)
+        {
+            Bitmap bmp = new Bitmap(img, img.Width + (img.Width * size.Width / 100), img.Height + (img.Height * size.Height / 100));
+            Graphics g = Graphics.FromImage(bmp);
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            return bmp;
+        } 
 
         
     }
