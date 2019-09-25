@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ImageViwer_Beta
 {
     public partial class Form1 : Form
@@ -19,6 +20,7 @@ namespace ImageViwer_Beta
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MainPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             
         }
 
@@ -93,7 +95,7 @@ namespace ImageViwer_Beta
         {
             set
             {
-                this.MainPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                //this.MainPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 this.MainPictureBox.Image = value;
                 //this.MainPictureBox.Size = value.Size;
             }
@@ -172,6 +174,8 @@ namespace ImageViwer_Beta
                 MainPictureBox.Height += Convert.ToInt32(MainPictureBox.Height * e.Delta / 5000);
             }
         }
+
+       
 
         }
     }
