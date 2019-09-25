@@ -87,7 +87,6 @@
             // 
             // MainPictureBox
             // 
-            this.MainPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MainPictureBox.Location = new System.Drawing.Point(17, 13);
             this.MainPictureBox.Name = "MainPictureBox";
             this.MainPictureBox.Size = new System.Drawing.Size(751, 442);
@@ -113,7 +112,7 @@
             this.panel1.Controls.Add(this.MainPictureBox);
             this.panel1.Location = new System.Drawing.Point(236, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(778, 463);
+            this.panel1.Size = new System.Drawing.Size(786, 463);
             this.panel1.TabIndex = 8;
             // 
             // Form1
