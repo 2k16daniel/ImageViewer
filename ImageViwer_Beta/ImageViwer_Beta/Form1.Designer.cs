@@ -36,16 +36,18 @@
             this.bttn_fullsize = new System.Windows.Forms.Button();
             this.MainPictureBox = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Button_PicOpen
             // 
             this.Button_PicOpen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_PicOpen.Location = new System.Drawing.Point(12, 357);
+            this.Button_PicOpen.Location = new System.Drawing.Point(12, 379);
             this.Button_PicOpen.Name = "Button_PicOpen";
-            this.Button_PicOpen.Size = new System.Drawing.Size(67, 26);
+            this.Button_PicOpen.Size = new System.Drawing.Size(167, 26);
             this.Button_PicOpen.TabIndex = 1;
             this.Button_PicOpen.Text = "OPEN";
             this.Button_PicOpen.UseVisualStyleBackColor = true;
@@ -64,7 +66,7 @@
             this.ImageListview.LargeImageList = this.imageList1;
             this.ImageListview.Location = new System.Drawing.Point(12, 12);
             this.ImageListview.Name = "ImageListview";
-            this.ImageListview.Size = new System.Drawing.Size(201, 339);
+            this.ImageListview.Size = new System.Drawing.Size(201, 361);
             this.ImageListview.TabIndex = 2;
             this.ImageListview.UseCompatibleStateImageBehavior = false;
             this.ImageListview.ItemActivate += new System.EventHandler(this.ImageListview_ItemActivate);
@@ -75,7 +77,7 @@
             this.bttn_fullsize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bttn_fullsize.AutoSize = true;
             this.bttn_fullsize.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.bttn_fullsize.Location = new System.Drawing.Point(114, 430);
+            this.bttn_fullsize.Location = new System.Drawing.Point(116, 452);
             this.bttn_fullsize.Name = "bttn_fullsize";
             this.bttn_fullsize.Size = new System.Drawing.Size(114, 23);
             this.bttn_fullsize.TabIndex = 5;
@@ -86,9 +88,9 @@
             // MainPictureBox
             // 
             this.MainPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MainPictureBox.Location = new System.Drawing.Point(225, 12);
+            this.MainPictureBox.Location = new System.Drawing.Point(17, 13);
             this.MainPictureBox.Name = "MainPictureBox";
-            this.MainPictureBox.Size = new System.Drawing.Size(697, 441);
+            this.MainPictureBox.Size = new System.Drawing.Size(751, 442);
             this.MainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MainPictureBox.TabIndex = 6;
             this.MainPictureBox.TabStop = false;
@@ -97,7 +99,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(173, 401);
+            this.button1.Location = new System.Drawing.Point(184, 423);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(46, 23);
             this.button1.TabIndex = 7;
@@ -105,13 +107,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.MainPictureBox);
+            this.panel1.Location = new System.Drawing.Point(236, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(778, 463);
+            this.panel1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 457);
+            this.ClientSize = new System.Drawing.Size(1023, 479);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.MainPictureBox);
             this.Controls.Add(this.bttn_fullsize);
             this.Controls.Add(this.ImageListview);
             this.Controls.Add(this.Button_PicOpen);
@@ -121,9 +132,9 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Image Viewer";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,6 +148,7 @@
         private System.Windows.Forms.Button bttn_fullsize;
         private System.Windows.Forms.PictureBox MainPictureBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

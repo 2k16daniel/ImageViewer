@@ -36,10 +36,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(642, 381);
+            this.pictureBox1.Size = new System.Drawing.Size(148, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -47,20 +49,21 @@
             // 
             // Picture_Panel
             // 
-            this.Picture_Panel.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.Picture_Panel.AutoScroll = true;
             this.Picture_Panel.Controls.Add(this.pictureBox1);
             this.Picture_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Picture_Panel.Location = new System.Drawing.Point(0, 0);
             this.Picture_Panel.Name = "Picture_Panel";
-            this.Picture_Panel.Size = new System.Drawing.Size(642, 381);
+            this.Picture_Panel.Size = new System.Drawing.Size(892, 575);
             this.Picture_Panel.TabIndex = 0;
+            this.Picture_Panel.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Picture_Panel_Scroll);
             this.Picture_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Picture_Panel_Paint);
             // 
             // Photo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 381);
+            this.ClientSize = new System.Drawing.Size(892, 575);
             this.Controls.Add(this.Picture_Panel);
             this.Name = "Photo";
             this.Text = "Photo";

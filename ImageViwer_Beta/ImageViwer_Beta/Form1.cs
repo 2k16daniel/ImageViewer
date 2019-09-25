@@ -19,23 +19,10 @@ namespace ImageViwer_Beta
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MainPictureBox.MouseWheel += MainPictureBox_MouseWheel;
+            
         }
 
-        void MainPictureBox_MouseWheel(object sender, MouseEventArgs e)
-        {
-            if (e.Delta > 0)
-            {
-                MainPictureBox.Width = MainPictureBox.Width + 50;
-                MainPictureBox.Height = MainPictureBox.Height + 50;
-            }
-            else
-            {
-                MainPictureBox.Width = MainPictureBox.Width - 50;
-                MainPictureBox.Width = MainPictureBox.Height - 50;
-            }
-            //throw new NotImplementedException();
-        }
+        
         private void Button_PicOpen_Click(object sender, EventArgs e)
         {
             // open file dialog   
@@ -164,5 +151,27 @@ namespace ImageViwer_Beta
         {
 
         }
+        protected override void OnMouseWheel(MouseEventArgs e)
+        {
+            if (e.Delta != 0)
+            {
+                if (e.Delta <= 0)
+                {
+                    //set minimum size to zoom
+                    if (MainPictureBox.Width < 50)
+                        // lbl_Zoom.Text = pictureBox1.Image.Size; 
+                        return;
+                }
+                else
+                {
+                    //set maximum size to zoom
+                    if (MainPictureBox.Width > 5000)
+                        return;
+                }
+                MainPictureBox.Width += Convert.ToInt32(MainPictureBox.Width * e.Delta / 5000);
+                MainPictureBox.Height += Convert.ToInt32(MainPictureBox.Height * e.Delta / 5000);
+            }
+        }
+
         }
     }
