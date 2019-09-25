@@ -30,8 +30,8 @@ namespace ImageViwer_Beta
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png *.tiff)|*.jpg; *.jpeg; *.gif; *.bmp; *.png; *.tiff";
+            //open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             open.Multiselect = true;
             open.ValidateNames = true;
             if (open.ShowDialog() == DialogResult.OK)
@@ -137,9 +137,7 @@ namespace ImageViwer_Beta
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string fileinfoName = "";
-            string FileTagName = "";
-            string FileDiscription = "";
+            
                     var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
                     foreach (var directory in directories)
                         foreach (var tag in directory.Tags)
