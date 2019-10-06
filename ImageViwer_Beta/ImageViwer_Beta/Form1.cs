@@ -146,20 +146,13 @@ namespace ImageViwer_Beta
                     {
                         
                         foreach (var tag in directory.Tags)
-                        {
-                            
+                        { 
                             i++;
-                            //MessageBox.Show(String.Format(directory.Name.ToString() + Environment.NewLine + tag.Name.ToString() + Environment.NewLine + tag.Description.ToString()));
                             infoImage[i] = tag.Name + Environment.NewLine + tag.Description;
                             toDisplay = string.Join(Environment.NewLine, infoImage); 
-                            
                         }
                     }
                     MessageBox.Show(toDisplay);
-
-                            //fileinfoName = string.Format(directory.Name + tag.Name + tag.Description);
-                           // FileTagName = string.Format(
-                            //MessageBox.Show(fileinfoName);
             }
 
         private void MainPictureBox_Click(object sender, EventArgs e)
