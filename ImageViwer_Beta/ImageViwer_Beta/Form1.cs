@@ -137,11 +137,26 @@ namespace ImageViwer_Beta
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            String[] infoImage = new String[40];
+            int i = 0;
+            string toDisplay = "";
+
                     var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
                     foreach (var directory in directories)
+                    {
+                        
                         foreach (var tag in directory.Tags)
-                            MessageBox.Show(String.Format(directory.Name.ToString() + Environment.NewLine + tag.Name.ToString() + Environment.NewLine + tag.Description.ToString()));
+                        {
+                            
+                            i++;
+                            //MessageBox.Show(String.Format(directory.Name.ToString() + Environment.NewLine + tag.Name.ToString() + Environment.NewLine + tag.Description.ToString()));
+                            infoImage[i] = tag.Name + Environment.NewLine + tag.Description;
+                            toDisplay = string.Join(Environment.NewLine, infoImage); 
+                            
+                        }
+                    }
+                    MessageBox.Show(toDisplay);
+
                             //fileinfoName = string.Format(directory.Name + tag.Name + tag.Description);
                            // FileTagName = string.Format(
                             //MessageBox.Show(fileinfoName);

@@ -64,6 +64,7 @@
             this.Controls.Add(this.Picture_Panel);
             this.Name = "Photo";
             this.Text = "Photo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Photo_FormClosing);
             this.Load += new System.EventHandler(this.Photo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
