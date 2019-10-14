@@ -17,7 +17,6 @@ namespace ImageViwer_Beta
     public partial class Form1 : Form
     {
         List<string> imagelist = new List<string>();
-       // List<string> infoImage = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -64,13 +63,7 @@ namespace ImageViwer_Beta
         {
             if (ImageListview.FocusedItem != null)
             {
-                /* using (Photo phto = new Photo())
-                 {
-                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
-                     phto.imagebox = img;
-                     phto.ShowDialog();
-
-                 } */
+              
                 try
                 {
                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
@@ -78,9 +71,10 @@ namespace ImageViwer_Beta
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information
-                    );
+                    //MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
+                    //MessageBoxButtons.OK, MessageBoxIcon.Information
+                    MessageBox.Show("Invalid File! Please Make sure to choose the valid file!");
+                    
                 }
 
             }
@@ -169,6 +163,10 @@ namespace ImageViwer_Beta
             catch (IndexOutOfRangeException)
             {
                 MessageBox.Show(toDisplay);
+            }
+            catch (ImageProcessingException)
+            {
+                MessageBox.Show("Invalid Digital Image file!");
             }
         }
                
