@@ -1,4 +1,5 @@
 ﻿using MetadataExtractor;
+using MetadataExtractor.Formats.Exif;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -143,13 +144,14 @@ namespace ImageViwer_Beta
             {
                 var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
                 
+                
                     foreach (var directory in directories)
                     {
                          
                             foreach (var tag in directory.Tags)
                             {
                                
-                                infoImage[i] = tag.Name + " = " + tag.Description;
+                                infoImage[i] = tag.Name + ":  " + tag.Description;
                                 toDisplay = string.Join(Environment.NewLine, infoImage);
                                 i++;
                             }                       
