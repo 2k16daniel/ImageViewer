@@ -16,6 +16,7 @@ namespace ImageViwer_Beta
     public partial class Form1 : Form
     {
         List<string> imagelist = new List<string>();
+       // List<string> infoImage = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -116,9 +117,7 @@ namespace ImageViwer_Beta
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information
-                    );
+                    MessageBox.Show("Invalid File! Please Make sure to choose the valid file!");
                 }
             }
             /* Usless code , save this for reference!!
@@ -137,24 +136,40 @@ namespace ImageViwer_Beta
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            String[] infoImage = new String[40];
+            string[] infoImage = new string[40];
             int i = 0;
             string toDisplay = "";
-
-                    var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
+            try
+            {
+                var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
+                
                     foreach (var directory in directories)
                     {
-                        
-                        foreach (var tag in directory.Tags)
-                        { 
-                            i++;
-                            infoImage[i] = tag.Name + Environment.NewLine + tag.Description;
-                            toDisplay = string.Join(Environment.NewLine, infoImage); 
-                        }
+                         
+                            foreach (var tag in directory.Tags)
+                            {
+                               
+                                infoImage[i] = tag.Name + " = " + tag.Description;
+                                toDisplay = string.Join(Environment.NewLine, infoImage);
+                                i++;
+                            }                       
                     }
-                    MessageBox.Show(toDisplay);
+                    MessageBox.Show(toDisplay);                              
             }
-
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("select some image first! ");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show(toDisplay);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show(toDisplay);
+            }
+        }
+               
         private void MainPictureBox_Click(object sender, EventArgs e)
         {
 
@@ -167,7 +182,6 @@ namespace ImageViwer_Beta
                 {
                     //set minimum size to zoom
                     if (MainPictureBox.Width < 50)
-                        // lbl_Zoom.Text = pictureBox1.Image.Size; 
                         return;
                 }
                 else
@@ -180,8 +194,5 @@ namespace ImageViwer_Beta
                 MainPictureBox.Height += Convert.ToInt32(MainPictureBox.Height * e.Delta / 5000);
             }
         }
-
-       
-
         }
     }
