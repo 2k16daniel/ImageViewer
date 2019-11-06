@@ -38,12 +38,12 @@ namespace ImageViwer_Beta
             if (open.ShowDialog() == DialogResult.OK)
             {
                 imagelist.Clear();
-                ImageListview.Items.Clear();
+                //ImageListview.Items.Clear();
                 foreach (string filename in open.FileNames)
                 {
                     FileInfo imginfo = new FileInfo(filename);
                     imagelist.Add(imginfo.FullName);
-                    ImageListview.Items.Add(imginfo.Name, 0);
+                   // ImageListview.Items.Add(imginfo.Name, 0);
                 }
             }
             //open.Dispose();
@@ -51,7 +51,7 @@ namespace ImageViwer_Beta
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //hello
         }
 
         private void ImageList_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace ImageViwer_Beta
 
         private void ImageListview_ItemActivate(object sender, EventArgs e)
         {
-            if (ImageListview.FocusedItem != null)
+           /* if (ImageListview.FocusedItem != null)
             {
               
                 try
@@ -77,9 +77,9 @@ namespace ImageViwer_Beta
                     
                 }
 
-            }
-        }
-        private void Main_Picturebox_Click(object sender, EventArgs e)
+            } */
+        } 
+         /* private void Main_Picturebox_Click(object sender, EventArgs e)
         {
 
             if (ImageListview.FocusedItem != null)
@@ -87,6 +87,7 @@ namespace ImageViwer_Beta
 
             }
         }
+          */
         public Image photobox
         {
             set
@@ -98,6 +99,8 @@ namespace ImageViwer_Beta
         }
         private void bttn_fullsize_Click(object sender, EventArgs e)
         {
+
+            /* Usless code , save this for reference!!
             if (ImageListview.FocusedItem != null)
             {
                 try
@@ -115,8 +118,6 @@ namespace ImageViwer_Beta
                     MessageBox.Show("Invalid File! Please Make sure to choose the valid file!");
                 }
             }
-            /* Usless code , save this for reference!!
-        
              * private void PictureBox_Click(object sender, EventArgs e)
             {
                 OpenFileDialog open = new OpenFileDialog();
@@ -131,7 +132,7 @@ namespace ImageViwer_Beta
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] infoImage = new string[40];
+           /* string[] infoImage = new string[40];
             int i = 0;
             string toDisplay = "";
             try
@@ -167,7 +168,7 @@ namespace ImageViwer_Beta
             catch (ImageProcessingException)
             {
                 MessageBox.Show("Invalid Digital Image file!");
-            }
+            } */
         }
                
         private void MainPictureBox_Click(object sender, EventArgs e)
@@ -193,6 +194,11 @@ namespace ImageViwer_Beta
                 MainPictureBox.Width += Convert.ToInt32(MainPictureBox.Width * e.Delta / 5000);
                 MainPictureBox.Height += Convert.ToInt32(MainPictureBox.Height * e.Delta / 5000);
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
         }
     }
