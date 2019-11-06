@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace ImageViwer_Beta
 {
-    public partial class PhotoList : Form
+    public partial class PhotoList : Form{
     
         string[] itemList;
+        List<string> imagelist = new List<string>();
         public PhotoList()
         {
             InitializeComponent();
@@ -25,7 +26,11 @@ namespace ImageViwer_Beta
 
         private void PhotoList_Load(object sender, EventArgs e)
         {
-
+            
+        }
+        public void ShowingArray(string[] array)
+        {
+            listBox1.Items.Add(array);
         }
     }
 }

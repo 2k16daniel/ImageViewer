@@ -213,15 +213,11 @@ namespace ImageViwer_Beta
             {
                 imagelist.Clear();
                 //ImageListview.Items.Clear();
-                foreach (string filename in openFileDialog.FileNames)
-                {
-                    FileInfo imginfo = new FileInfo(filename);
-                    imagelist.Add(imginfo.FullName);
-                      // ImageListview.Items.Add(imginfo.Name, 0);        
                     pFileNames = openFileDialog.FileNames;
+                    PhotoList listphoto = new PhotoList();
+                    listphoto.ShowingArray(pFileNames);
                     pCurrentImage = 0;
-                    ShowCurrentImage();
-                }
+                   
             }
         }
 
@@ -290,14 +286,21 @@ namespace ImageViwer_Beta
 
         private void selectedImagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            
+            PhotoList listphoto = new PhotoList();
+            listphoto.Show();
+        }
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
             
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void PassArrayToPhotolist()
         {
-
+            if (pFileNames.Length > 0){
+                
+                PhotoList listphoto = new PhotoList();
+                listphoto.ShowingArray(pFileNames);
+            }
         }
        
         }
