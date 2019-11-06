@@ -40,9 +40,9 @@
             this.photosMetaDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullSizeImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectedImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prev_btn = new System.Windows.Forms.Button();
             this.next_btn = new System.Windows.Forms.Button();
-            this.selectedImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -88,6 +88,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1089, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -130,9 +131,16 @@
             // fullSizeImageToolStripMenuItem
             // 
             this.fullSizeImageToolStripMenuItem.Name = "fullSizeImageToolStripMenuItem";
-            this.fullSizeImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fullSizeImageToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.fullSizeImageToolStripMenuItem.Text = "Full Size Image";
             this.fullSizeImageToolStripMenuItem.Click += new System.EventHandler(this.fullSizeImageToolStripMenuItem_Click);
+            // 
+            // selectedImagesToolStripMenuItem
+            // 
+            this.selectedImagesToolStripMenuItem.Name = "selectedImagesToolStripMenuItem";
+            this.selectedImagesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.selectedImagesToolStripMenuItem.Text = "Selected Images";
+            this.selectedImagesToolStripMenuItem.Click += new System.EventHandler(this.selectedImagesToolStripMenuItem_Click);
             // 
             // prev_btn
             // 
@@ -153,12 +161,6 @@
             this.next_btn.Text = "Next";
             this.next_btn.UseVisualStyleBackColor = true;
             this.next_btn.Click += new System.EventHandler(this.next_btn_Click);
-            // 
-            // selectedImagesToolStripMenuItem
-            // 
-            this.selectedImagesToolStripMenuItem.Name = "selectedImagesToolStripMenuItem";
-            this.selectedImagesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.selectedImagesToolStripMenuItem.Text = "Selected Images";
             // 
             // Form1
             // 

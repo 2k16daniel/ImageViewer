@@ -210,10 +210,18 @@ namespace ImageViwer_Beta
             openFileDialog.Multiselect = true;
             openFileDialog.Filter = "JPEG|*.jpg|Bitmaps|*.bmp|GIF|*.gif|TIFF|*.tiff|PNG|*.png";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {   
-                pFileNames = openFileDialog.FileNames; 
-                pCurrentImage = 0;
-                ShowCurrentImage();
+            {
+                imagelist.Clear();
+                //ImageListview.Items.Clear();
+                foreach (string filename in openFileDialog.FileNames)
+                {
+                    FileInfo imginfo = new FileInfo(filename);
+                    imagelist.Add(imginfo.FullName);
+                      // ImageListview.Items.Add(imginfo.Name, 0);        
+                    pFileNames = openFileDialog.FileNames;
+                    pCurrentImage = 0;
+                    ShowCurrentImage();
+                }
             }
         }
 
@@ -275,9 +283,21 @@ namespace ImageViwer_Beta
                 }
             }
             catch (Exception ex)
-            {
+               {
                 MessageBox.Show("Invalid File! Please Make sure to choose the valid file!");
             }
+        }
+
+        private void selectedImagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            
+            
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
        
         }
