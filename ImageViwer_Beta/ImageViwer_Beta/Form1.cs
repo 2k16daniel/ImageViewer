@@ -208,7 +208,7 @@ namespace ImageViwer_Beta
             
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
-            openFileDialog.Filter = "JPEG|*.jpg|Bitmaps|*.bmp|GIF|*.gif|TIFF|*.tiff";
+            openFileDialog.Filter = "JPEG|*.jpg|Bitmaps|*.bmp|GIF|*.gif|TIFF|*.tiff|PNG|*.png";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {   
                 pFileNames = openFileDialog.FileNames; 
@@ -258,6 +258,25 @@ namespace ImageViwer_Beta
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void fullSizeImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (Photo phto = new Photo())
+                {
+                    //Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
+                    Image img = MainPictureBox.Image;
+                    phto.imagebox = img;
+                    phto.ShowDialog();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid File! Please Make sure to choose the valid file!");
             }
         }
        

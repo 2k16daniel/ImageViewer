@@ -36,7 +36,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(148, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -51,7 +51,7 @@
             this.Picture_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Picture_Panel.Location = new System.Drawing.Point(0, 0);
             this.Picture_Panel.Name = "Picture_Panel";
-            this.Picture_Panel.Size = new System.Drawing.Size(892, 575);
+            this.Picture_Panel.Size = new System.Drawing.Size(550, 351);
             this.Picture_Panel.TabIndex = 0;
             this.Picture_Panel.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Picture_Panel_Scroll);
             this.Picture_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Picture_Panel_Paint);
@@ -60,7 +60,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 575);
+            this.ClientSize = new System.Drawing.Size(550, 351);
             this.Controls.Add(this.Picture_Panel);
             this.Name = "Photo";
             this.Text = "Photo";
