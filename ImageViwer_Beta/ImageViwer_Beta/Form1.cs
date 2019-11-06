@@ -16,6 +16,8 @@ namespace ImageViwer_Beta
 {
     public partial class Form1 : Form
     {
+        protected string[] pFileNames;
+        protected int pCurrentImage = -1;
         List<string> imagelist = new List<string>();
         public Form1()
         {
@@ -188,11 +190,11 @@ namespace ImageViwer_Beta
                 else
                 {
                     //set maximum size to zoom
-                    if (MainPictureBox.Width > 5000)
+                    if (MainPictureBox.Width > 10000)
                         return;
                 }
-                MainPictureBox.Width += Convert.ToInt32(MainPictureBox.Width * e.Delta / 5000);
-                MainPictureBox.Height += Convert.ToInt32(MainPictureBox.Height * e.Delta / 5000);
+                MainPictureBox.Width += Convert.ToInt32(MainPictureBox.Width * e.Delta / 10000);
+                MainPictureBox.Height += Convert.ToInt32(MainPictureBox.Height * e.Delta / 10000);
             }
         }
 
@@ -200,5 +202,64 @@ namespace ImageViwer_Beta
         {
 
         }
+
+        private void openPhotoMenu_Click(object sender, EventArgs e)
+        {
+            
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            openFileDialog.Filter = "JPEG|*.jpg|Bitmaps|*.bmp|GIF|*.gif|TIFF|*.tiff";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {   
+                pFileNames = openFileDialog.FileNames; 
+                pCurrentImage = 0;
+                ShowCurrentImage();
+            }
+        }
+
+        protected void ShowCurrentImage()
+        {
+            foreach (string image in pFileNames)
+            {
+                if (pCurrentImage >= 0 && pCurrentImage <= pFileNames.Length - 1)
+                {
+
+                    MainPictureBox.Image = Bitmap.FromFile(pFileNames[pCurrentImage]);
+
+                }
+            }
+        }
+
+        private void prev_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                    if (pFileNames.Length > 0)
+                    {
+                        pCurrentImage = pCurrentImage == 0 ? pFileNames.Length - 1 : --pCurrentImage;
+                        ShowCurrentImage();
+                    }
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+
+        private void next_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (pFileNames.Length > 0)
+                {
+                    pCurrentImage = pCurrentImage == pFileNames.Length - 1 ? 0 : ++pCurrentImage;
+                    ShowCurrentImage();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+       
         }
     }
