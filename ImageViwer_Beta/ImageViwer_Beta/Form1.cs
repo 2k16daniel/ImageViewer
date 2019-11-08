@@ -14,8 +14,10 @@ using System.Windows.Forms;
 namespace ImageViwer_Beta
 {
     public partial class Form1 : Form
-    {
+    {   
+
         List<string> imagelist = new List<string>();
+        int pCurrentImage = -1;
         public Form1()
         {
             InitializeComponent();
@@ -212,7 +214,35 @@ namespace ImageViwer_Beta
             }
         }
 
-       
+        
+
+        protected void ShowCurrentImage()
+        {
+            if (pCurrentImage >= 0 && pCurrentImage <= imagelist.Count() - 1)
+            {
+                //ctureBox1.Image = Bitmap.FromFile(pFileNames[pCurrentImage]);
+                Image img = Image.FromFile(imagelist[pCurrentImage]);
+                photobox = img;
+            }
+        }
+
+        private void Prev_btn_Click(object sender, EventArgs e)
+        {
+            if (imagelist.Count() > 0)
+            {
+                pCurrentImage = pCurrentImage == 0 ? imagelist.Count() - 1 : --pCurrentImage;
+                ShowCurrentImage();
+            }
+        }
+
+        private void Next_btn_Click(object sender, EventArgs e)
+        {
+            if (imagelist.Count() > 0)
+            {
+                pCurrentImage = pCurrentImage == imagelist.Count() - 1 ? 0 : ++pCurrentImage;
+                ShowCurrentImage();
+            }
+        }
 
         }
     }

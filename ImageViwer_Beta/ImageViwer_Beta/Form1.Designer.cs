@@ -48,7 +48,8 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Prev_btn = new System.Windows.Forms.Button();
+            this.Next_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -164,7 +165,7 @@
             // viewFullsizeToolStripMenuItem
             // 
             this.viewFullsizeToolStripMenuItem.Name = "viewFullsizeToolStripMenuItem";
-            this.viewFullsizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.viewFullsizeToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.viewFullsizeToolStripMenuItem.Text = "View Full-size ";
             this.viewFullsizeToolStripMenuItem.Click += new System.EventHandler(this.viewFullsizeToolStripMenuItem_Click);
             // 
@@ -203,21 +204,33 @@
             this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             // 
-            // button1
+            // Prev_btn
             // 
-            this.button1.Location = new System.Drawing.Point(543, 530);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "PREV";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Prev_btn.Location = new System.Drawing.Point(557, 530);
+            this.Prev_btn.Name = "Prev_btn";
+            this.Prev_btn.Size = new System.Drawing.Size(75, 23);
+            this.Prev_btn.TabIndex = 10;
+            this.Prev_btn.Text = "PREV";
+            this.Prev_btn.UseVisualStyleBackColor = true;
+            this.Prev_btn.Click += new System.EventHandler(this.Prev_btn_Click);
+            // 
+            // Next_btn
+            // 
+            this.Next_btn.Location = new System.Drawing.Point(654, 530);
+            this.Next_btn.Name = "Next_btn";
+            this.Next_btn.Size = new System.Drawing.Size(75, 23);
+            this.Next_btn.TabIndex = 12;
+            this.Next_btn.Text = "NEXT";
+            this.Next_btn.UseVisualStyleBackColor = true;
+            this.Next_btn.Click += new System.EventHandler(this.Next_btn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 579);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Next_btn);
+            this.Controls.Add(this.Prev_btn);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ImageListview);
             this.Controls.Add(this.menuStrip1);
@@ -258,7 +271,8 @@
         private System.Windows.Forms.ToolStripMenuItem caseStudyTeamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Prev_btn;
+        private System.Windows.Forms.Button Next_btn;
     }
 }
 
