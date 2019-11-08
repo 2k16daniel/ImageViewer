@@ -50,7 +50,7 @@ namespace ImageViwer_Beta
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            helpToolStripMenuItem();
         }
 
         private void ImageList_SelectedIndexChanged(object sender, EventArgs e)
