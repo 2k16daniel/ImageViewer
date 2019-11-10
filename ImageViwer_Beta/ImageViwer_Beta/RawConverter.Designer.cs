@@ -61,6 +61,7 @@
             this.openRaw.TabIndex = 1;
             this.openRaw.Text = "OPEN";
             this.openRaw.UseVisualStyleBackColor = true;
+            this.openRaw.Click += new System.EventHandler(this.openRaw_Click);
             // 
             // convert_combo
             // 
@@ -99,6 +100,7 @@
             this.Controls.Add(this.openRaw);
             this.Controls.Add(this.panel1);
             this.Name = "RawConverter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RawConverter";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

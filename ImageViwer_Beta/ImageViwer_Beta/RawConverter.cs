@@ -17,6 +17,21 @@ namespace ImageViwer_Beta
             InitializeComponent();
         }
 
+        private void openRaw_Click(object sender, EventArgs e)
+        {
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "CANON|*.crw|NIKON|*.ORF|FUJI|*.raf|GIF|*.gif|TIFF|*.tiff";
+
+            open.Multiselect = true;
+            open.ValidateNames = true;
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
+        }
+
         
     }
 }
