@@ -138,6 +138,7 @@
             this.rawConverterToolStripMenuItem.Name = "rawConverterToolStripMenuItem";
             this.rawConverterToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.rawConverterToolStripMenuItem.Text = "Raw Converter";
+            this.rawConverterToolStripMenuItem.Click += new System.EventHandler(this.rawConverterToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem
             // 

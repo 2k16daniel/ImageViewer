@@ -244,5 +244,14 @@ namespace ImageViwer_Beta
             }
         }
 
+        private void rawConverterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (RawConverter rawform = new RawConverter()) {
+                rawform.ShowDialog();
+            }
+        }
+
+      
+
         }
     }
