@@ -34,13 +34,16 @@
             this.convert_combo = new System.Windows.Forms.ComboBox();
             this.convert_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.browse_btn = new System.Windows.Forms.Button();
+            this.SaveFileLocation = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.RawList);
-            this.panel1.Location = new System.Drawing.Point(82, 12);
+            this.panel1.Location = new System.Drawing.Point(0, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(177, 213);
             this.panel1.TabIndex = 0;
@@ -55,7 +58,7 @@
             // 
             // openRaw
             // 
-            this.openRaw.Location = new System.Drawing.Point(135, 231);
+            this.openRaw.Location = new System.Drawing.Point(46, 231);
             this.openRaw.Name = "openRaw";
             this.openRaw.Size = new System.Drawing.Size(75, 23);
             this.openRaw.TabIndex = 1;
@@ -66,16 +69,16 @@
             // convert_combo
             // 
             this.convert_combo.FormattingEnabled = true;
-            this.convert_combo.Location = new System.Drawing.Point(82, 289);
+            this.convert_combo.Location = new System.Drawing.Point(196, 93);
             this.convert_combo.Name = "convert_combo";
-            this.convert_combo.Size = new System.Drawing.Size(177, 21);
+            this.convert_combo.Size = new System.Drawing.Size(136, 21);
             this.convert_combo.TabIndex = 2;
             // 
             // convert_btn
             // 
-            this.convert_btn.Location = new System.Drawing.Point(82, 333);
+            this.convert_btn.Location = new System.Drawing.Point(73, 345);
             this.convert_btn.Name = "convert_btn";
-            this.convert_btn.Size = new System.Drawing.Size(177, 76);
+            this.convert_btn.Size = new System.Drawing.Size(178, 59);
             this.convert_btn.TabIndex = 3;
             this.convert_btn.Text = "CONVERT";
             this.convert_btn.UseVisualStyleBackColor = true;
@@ -83,17 +86,45 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 273);
+            this.label1.Location = new System.Drawing.Point(193, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "CONVERT TO :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 283);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Save  to :";
+            // 
+            // browse_btn
+            // 
+            this.browse_btn.Location = new System.Drawing.Point(257, 297);
+            this.browse_btn.Name = "browse_btn";
+            this.browse_btn.Size = new System.Drawing.Size(75, 23);
+            this.browse_btn.TabIndex = 6;
+            this.browse_btn.Text = "browse";
+            this.browse_btn.UseVisualStyleBackColor = true;
+            // 
+            // SaveFileLocation
+            // 
+            this.SaveFileLocation.Location = new System.Drawing.Point(13, 299);
+            this.SaveFileLocation.Name = "SaveFileLocation";
+            this.SaveFileLocation.Size = new System.Drawing.Size(238, 20);
+            this.SaveFileLocation.TabIndex = 7;
             // 
             // RawConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 436);
+            this.Controls.Add(this.SaveFileLocation);
+            this.Controls.Add(this.browse_btn);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.convert_btn);
             this.Controls.Add(this.convert_combo);
@@ -116,6 +147,9 @@
         private System.Windows.Forms.ComboBox convert_combo;
         private System.Windows.Forms.Button convert_btn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button browse_btn;
+        private System.Windows.Forms.TextBox SaveFileLocation;
 
     }
 }
