@@ -50,6 +50,8 @@
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Prev_btn = new System.Windows.Forms.Button();
             this.Next_btn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.FileNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -225,11 +227,30 @@
             this.Next_btn.UseVisualStyleBackColor = true;
             this.Next_btn.Click += new System.EventHandler(this.Next_btn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(273, 535);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "File Name :";
+            // 
+            // FileNameLabel
+            // 
+            this.FileNameLabel.AutoSize = true;
+            this.FileNameLabel.Location = new System.Drawing.Point(339, 535);
+            this.FileNameLabel.Name = "FileNameLabel";
+            this.FileNameLabel.Size = new System.Drawing.Size(0, 13);
+            this.FileNameLabel.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 579);
+            this.Controls.Add(this.FileNameLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Next_btn);
             this.Controls.Add(this.Prev_btn);
             this.Controls.Add(this.panel1);
@@ -274,6 +295,8 @@
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
         private System.Windows.Forms.Button Prev_btn;
         private System.Windows.Forms.Button Next_btn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label FileNameLabel;
     }
 }
 

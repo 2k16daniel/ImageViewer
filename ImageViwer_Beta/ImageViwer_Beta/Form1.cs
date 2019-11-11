@@ -218,11 +218,14 @@ namespace ImageViwer_Beta
 
         protected void ShowCurrentImage()
         {
+           
             if (pCurrentImage >= 0 && pCurrentImage <= imagelist.Count() - 1)
             {
                 //ctureBox1.Image = Bitmap.FromFile(pFileNames[pCurrentImage]);
                 Image img = Image.FromFile(imagelist[pCurrentImage]);
                 photobox = img;
+                FileNameLabel.Text = Path.GetFileName(imagelist[pCurrentImage]);
+                
             }
         }
 
