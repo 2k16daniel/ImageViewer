@@ -51,14 +51,17 @@
             // RawList
             // 
             this.RawList.FormattingEnabled = true;
+            this.RawList.HorizontalScrollbar = true;
             this.RawList.Location = new System.Drawing.Point(13, 3);
             this.RawList.Name = "RawList";
+            this.RawList.ScrollAlwaysVisible = true;
             this.RawList.Size = new System.Drawing.Size(151, 199);
+            this.RawList.Sorted = true;
             this.RawList.TabIndex = 0;
             // 
             // openRaw
             // 
-            this.openRaw.Location = new System.Drawing.Point(46, 231);
+            this.openRaw.Location = new System.Drawing.Point(12, 222);
             this.openRaw.Name = "openRaw";
             this.openRaw.Size = new System.Drawing.Size(75, 23);
             this.openRaw.TabIndex = 1;
@@ -69,16 +72,20 @@
             // convert_combo
             // 
             this.convert_combo.FormattingEnabled = true;
-            this.convert_combo.Location = new System.Drawing.Point(196, 93);
+            this.convert_combo.Items.AddRange(new object[] {
+            "JPEG",
+            "PNG",
+            "BMP"});
+            this.convert_combo.Location = new System.Drawing.Point(183, 31);
             this.convert_combo.Name = "convert_combo";
             this.convert_combo.Size = new System.Drawing.Size(136, 21);
             this.convert_combo.TabIndex = 2;
             // 
             // convert_btn
             // 
-            this.convert_btn.Location = new System.Drawing.Point(73, 345);
+            this.convert_btn.Location = new System.Drawing.Point(183, 151);
             this.convert_btn.Name = "convert_btn";
-            this.convert_btn.Size = new System.Drawing.Size(178, 59);
+            this.convert_btn.Size = new System.Drawing.Size(149, 54);
             this.convert_btn.TabIndex = 3;
             this.convert_btn.Text = "CONVERT";
             this.convert_btn.UseVisualStyleBackColor = true;
@@ -86,7 +93,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(193, 63);
+            this.label1.Location = new System.Drawing.Point(183, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 4;
@@ -95,7 +102,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 283);
+            this.label2.Location = new System.Drawing.Point(183, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 5;
@@ -103,7 +110,7 @@
             // 
             // browse_btn
             // 
-            this.browse_btn.Location = new System.Drawing.Point(257, 297);
+            this.browse_btn.Location = new System.Drawing.Point(183, 97);
             this.browse_btn.Name = "browse_btn";
             this.browse_btn.Size = new System.Drawing.Size(75, 23);
             this.browse_btn.TabIndex = 6;
@@ -112,16 +119,16 @@
             // 
             // SaveFileLocation
             // 
-            this.SaveFileLocation.Location = new System.Drawing.Point(13, 299);
+            this.SaveFileLocation.Location = new System.Drawing.Point(183, 71);
             this.SaveFileLocation.Name = "SaveFileLocation";
-            this.SaveFileLocation.Size = new System.Drawing.Size(238, 20);
+            this.SaveFileLocation.Size = new System.Drawing.Size(149, 20);
             this.SaveFileLocation.TabIndex = 7;
             // 
             // RawConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 436);
+            this.ClientSize = new System.Drawing.Size(337, 257);
             this.Controls.Add(this.SaveFileLocation);
             this.Controls.Add(this.browse_btn);
             this.Controls.Add(this.label2);
@@ -133,6 +140,7 @@
             this.Name = "RawConverter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RawConverter";
+            this.Load += new System.EventHandler(this.RawConverter_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
