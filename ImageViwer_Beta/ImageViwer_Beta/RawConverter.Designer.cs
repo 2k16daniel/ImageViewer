@@ -58,6 +58,7 @@
             this.RawList.Size = new System.Drawing.Size(151, 199);
             this.RawList.Sorted = true;
             this.RawList.TabIndex = 0;
+            this.RawList.SelectedIndexChanged += new System.EventHandler(this.RawList_SelectedIndexChanged);
             // 
             // openRaw
             // 

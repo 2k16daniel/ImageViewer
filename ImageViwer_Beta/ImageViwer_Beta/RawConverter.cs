@@ -76,6 +76,11 @@ namespace ImageViwer_Beta
             }
         }
 
+        private void RawList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         
         
     }
