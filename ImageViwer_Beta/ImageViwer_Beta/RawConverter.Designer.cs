@@ -89,6 +89,7 @@
             this.convert_btn.TabIndex = 3;
             this.convert_btn.Text = "CONVERT";
             this.convert_btn.UseVisualStyleBackColor = true;
+            this.convert_btn.Click += new System.EventHandler(this.convert_btn_Click);
             // 
             // label1
             // 
@@ -116,6 +117,7 @@
             this.browse_btn.TabIndex = 6;
             this.browse_btn.Text = "browse";
             this.browse_btn.UseVisualStyleBackColor = true;
+            this.browse_btn.Click += new System.EventHandler(this.browse_btn_Click);
             // 
             // SaveFileLocation
             // 

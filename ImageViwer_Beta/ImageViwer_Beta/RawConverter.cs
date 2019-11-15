@@ -14,6 +14,7 @@ namespace ImageViwer_Beta
     public partial class RawConverter : Form
     {
         List<string> rawlistvariable = new List<string>();
+        string savePath;
         public RawConverter()
         {
             InitializeComponent();
@@ -45,6 +46,24 @@ namespace ImageViwer_Beta
         }
 
         private void RawConverter_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void browse_btn_Click(object sender, EventArgs e)
+        {
+            var folderBrowserDialog1 = new FolderBrowserDialog();
+
+            // Show the FolderBrowserDialog.
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                savePath = folderBrowserDialog1.SelectedPath;
+                SaveFileLocation.Text = savePath;
+            }
+        }
+
+        private void convert_btn_Click(object sender, EventArgs e)
         {
 
         }
