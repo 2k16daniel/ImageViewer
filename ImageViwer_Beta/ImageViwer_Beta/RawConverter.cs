@@ -71,7 +71,9 @@ namespace ImageViwer_Beta
             {
                 using (MagickImage image = new MagickImage(imageinraw))
                 {
-                    image.Write("StillLife.jpg");
+                    var oldfn = Path.GetFileName(imageinraw);
+                    var newfn = Path.ChangeExtension(oldfn, convert_combo.Text);
+                    image.Write(newfn);
                 }
             }
         }
