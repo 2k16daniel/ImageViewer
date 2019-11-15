@@ -67,17 +67,22 @@ namespace ImageViwer_Beta
 
         private void convert_btn_Click(object sender, EventArgs e)
         {
+            LoadingForm FileLoading = new LoadingForm();
+            FileLoading.Show();
             foreach (string imageinraw in rawlistvariable)
             {
+                
                 using (MagickImage image = new MagickImage(imageinraw))
                 {
+                    
                     var oldfn = Path.GetFileName(imageinraw);
                     var newfn = Path.ChangeExtension(oldfn, convert_combo.Text);
                     var combine = Path.Combine(savePath, newfn);
-                    image.Write(combine);
-                    
+                    image.Write(combine); 
                 }
+                
             }
+            FileLoading.Close();
         }
 
         private void RawList_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,7 +90,6 @@ namespace ImageViwer_Beta
 
         }
 
-        
         
     }
 }

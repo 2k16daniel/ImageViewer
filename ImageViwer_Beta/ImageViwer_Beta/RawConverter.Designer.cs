@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.RawList = new System.Windows.Forms.ListBox();
             this.openRaw = new System.Windows.Forms.Button();
@@ -37,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.browse_btn = new System.Windows.Forms.Button();
             this.SaveFileLocation = new System.Windows.Forms.TextBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,6 +130,10 @@
             this.SaveFileLocation.Size = new System.Drawing.Size(149, 20);
             this.SaveFileLocation.TabIndex = 7;
             // 
+            // timer
+            // 
+            
+            // 
             // RawConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,6 +168,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button browse_btn;
         private System.Windows.Forms.TextBox SaveFileLocation;
+        private System.Windows.Forms.Timer timer;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
 
     }
 }
