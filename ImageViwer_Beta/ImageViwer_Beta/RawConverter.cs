@@ -29,7 +29,7 @@ namespace ImageViwer_Beta
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "CANON|*.cr2|NIKON|*.ORF|FUJI|*.raf|GIF|*.gif|TIFF|*.tiff";
+            open.Filter = "CANON|*.cr2;*.crw|NIKON|*.ORF|FUJI|*.raf|GIF|*.gif|TIFF|*.tiff";
 
             open.Multiselect = true;
             open.ValidateNames = true;
@@ -73,7 +73,9 @@ namespace ImageViwer_Beta
                 {
                     var oldfn = Path.GetFileName(imageinraw);
                     var newfn = Path.ChangeExtension(oldfn, convert_combo.Text);
-                    image.Write(newfn);
+                    var combine = Path.Combine(savePath, newfn);
+                    image.Write(combine);
+                    
                 }
             }
         }
