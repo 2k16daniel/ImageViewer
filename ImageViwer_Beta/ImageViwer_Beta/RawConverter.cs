@@ -67,8 +67,10 @@ namespace ImageViwer_Beta
 
         private void convert_btn_Click(object sender, EventArgs e)
         {
-            LoadingForm FileLoading = new LoadingForm();
-            FileLoading.Show();
+            //LoadingForm FileLoading = new LoadingForm();
+            //FileLoading.Show();
+            //this.Hide();
+            timer.Enabled = true;
             foreach (string imageinraw in rawlistvariable)
             {
                 
@@ -78,16 +80,28 @@ namespace ImageViwer_Beta
                     var oldfn = Path.GetFileName(imageinraw);
                     var newfn = Path.ChangeExtension(oldfn, convert_combo.Text);
                     var combine = Path.Combine(savePath, newfn);
-                    image.Write(combine); 
+                    image.Write(combine);
                 }
                 
             }
-            FileLoading.Close();
+             
+            //FileLoading.Close();
         }
 
         private void RawList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            progressBar1.Value = progressBar1.Value + 2;
+            if(progressBar1.Value > 99){
+                RawConverter rawloading = new RawConverter();
+                rawloading.Show();
+                this.Hide();
+                timer.Enabled = false;
+            }
         }
 
         

@@ -40,6 +40,7 @@
             this.SaveFileLocation = new System.Windows.Forms.TextBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,13 +133,21 @@
             // 
             // timer
             // 
-            
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(183, 222);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(149, 23);
+            this.progressBar1.TabIndex = 8;
             // 
             // RawConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 257);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.SaveFileLocation);
             this.Controls.Add(this.browse_btn);
             this.Controls.Add(this.label2);
@@ -170,6 +179,7 @@
         private System.Windows.Forms.TextBox SaveFileLocation;
         private System.Windows.Forms.Timer timer;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.Windows.Forms.ProgressBar progressBar1;
 
     }
 }
