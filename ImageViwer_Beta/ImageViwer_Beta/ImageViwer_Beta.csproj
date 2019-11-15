@@ -127,6 +127,12 @@
     <Compile Include="RawConverter.Designer.cs">
       <DependentUpon>RawConverter.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkLoading.Designer.cs">
+      <DependentUpon>WorkLoading.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +150,9 @@
     </Compile>
     <EmbeddedResource Include="RawConverter.resx">
       <DependentUpon>RawConverter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkLoading.resx">
+      <DependentUpon>WorkLoading.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

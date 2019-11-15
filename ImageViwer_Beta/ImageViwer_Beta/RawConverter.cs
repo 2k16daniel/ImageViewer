@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageMagick;
+using System.Threading;
 
 namespace ImageViwer_Beta
 {
@@ -65,24 +66,37 @@ namespace ImageViwer_Beta
             }
         }
 
-        private void convert_btn_Click(object sender, EventArgs e)
+        private async void convert_btn_Click(object sender, EventArgs e)
         {
-            //LoadingForm FileLoading = new LoadingForm();
-            //FileLoading.Show();
-            //this.Hide();
-            timer.Enabled = true;
+            /* Pag gagayahan pra sa progress bar
+             * private async void button1_Click(object sender, EventArgs e)
+            {
+                Stopwatch timer = new Stopwatch();
+                var openFileDialog1 = new OpenFileDialog();
+                progressBar1.Style = ProgressBarStyle.Marquee;
+                progressBar1.MarqueeAnimationSpeed = 30;  
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {      
+                    timer.Start();
+                    textBox1.Text = await Task.Run(() => 
+                        GetFileMD5Hash(openFileDialog1.FileName));
+                    timer.Stop();
+                    lblTime.Text = timer.Elapsed.ToString();
+                    progressBar1.Style = ProgressBarStyle.Continuous;
+                    progressBar1.Increment(100);
+                }
+                progressBar1.MarqueeAnimationSpeed = 0;
+            } 
+             */
             foreach (string imageinraw in rawlistvariable)
             {
-                
                 using (MagickImage image = new MagickImage(imageinraw))
                 {
-                    
                     var oldfn = Path.GetFileName(imageinraw);
                     var newfn = Path.ChangeExtension(oldfn, convert_combo.Text);
                     var combine = Path.Combine(savePath, newfn);
                     image.Write(combine);
                 }
-                
             }
              
             //FileLoading.Close();
