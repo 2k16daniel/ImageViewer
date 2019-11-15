@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ImageMagick;
 
 namespace ImageViwer_Beta
 {
@@ -15,6 +16,7 @@ namespace ImageViwer_Beta
     {
         List<string> rawlistvariable = new List<string>();
         string savePath;
+        int pCurrentImage = -1;
         public RawConverter()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace ImageViwer_Beta
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "CANON|*.crw|NIKON|*.ORF|FUJI|*.raf|GIF|*.gif|TIFF|*.tiff";
+            open.Filter = "CANON|*.cr2|NIKON|*.ORF|FUJI|*.raf|GIF|*.gif|TIFF|*.tiff";
 
             open.Multiselect = true;
             open.ValidateNames = true;
@@ -65,7 +67,13 @@ namespace ImageViwer_Beta
 
         private void convert_btn_Click(object sender, EventArgs e)
         {
-
+            foreach (string imageinraw in rawlistvariable)
+            {
+                using (MagickImage image = new MagickImage(imageinraw))
+                {
+                    image.Write("StillLife.jpg");
+                }
+            }
         }
 
         
