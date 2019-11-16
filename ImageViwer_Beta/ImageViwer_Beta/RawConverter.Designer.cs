@@ -41,6 +41,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.remover_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,9 +67,9 @@
             // 
             // openRaw
             // 
-            this.openRaw.Location = new System.Drawing.Point(12, 222);
+            this.openRaw.Location = new System.Drawing.Point(13, 222);
             this.openRaw.Name = "openRaw";
-            this.openRaw.Size = new System.Drawing.Size(75, 23);
+            this.openRaw.Size = new System.Drawing.Size(57, 23);
             this.openRaw.TabIndex = 1;
             this.openRaw.Text = "OPEN";
             this.openRaw.UseVisualStyleBackColor = true;
@@ -78,9 +79,10 @@
             // 
             this.convert_combo.FormattingEnabled = true;
             this.convert_combo.Items.AddRange(new object[] {
-            "jpeg",
-            "png",
-            "bmp"});
+            "JPEG",
+            "PNG",
+            "BMP",
+            "TIFF"});
             this.convert_combo.Location = new System.Drawing.Point(183, 31);
             this.convert_combo.Name = "convert_combo";
             this.convert_combo.Size = new System.Drawing.Size(136, 21);
@@ -142,11 +144,22 @@
             this.progressBar1.Size = new System.Drawing.Size(149, 23);
             this.progressBar1.TabIndex = 8;
             // 
+            // remover_btn
+            // 
+            this.remover_btn.Location = new System.Drawing.Point(89, 222);
+            this.remover_btn.Name = "remover_btn";
+            this.remover_btn.Size = new System.Drawing.Size(75, 23);
+            this.remover_btn.TabIndex = 9;
+            this.remover_btn.Text = "REMOVE";
+            this.remover_btn.UseVisualStyleBackColor = true;
+            this.remover_btn.Click += new System.EventHandler(this.remover_btn_Click);
+            // 
             // RawConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 257);
+            this.Controls.Add(this.remover_btn);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.SaveFileLocation);
             this.Controls.Add(this.browse_btn);
@@ -180,6 +193,7 @@
         private System.Windows.Forms.Timer timer;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button remover_btn;
 
     }
 }

@@ -139,5 +139,17 @@ namespace ImageViwer_Beta
                 timer.Enabled = false;
             }
         }
+
+        private void remover_btn_Click(object sender, EventArgs e)
+        {
+            ListBox.SelectedObjectCollection selectedItems = new ListBox.SelectedObjectCollection(RawList);
+            if(RawList.SelectedIndex != -1){
+                for (int i = selectedItems.Count - 1; i >= 0; i-- )
+                {
+                    RawList.Items.Remove(selectedItems[i]);
+                }
+                MessageBox.Show("Item removed");
+            }
+        }
     }
 }
