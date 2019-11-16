@@ -76,27 +76,37 @@ namespace ImageViwer_Beta
 
         private async void convert_btn_Click(object sender, EventArgs e)
         {
-            
+            string extention;
+            extention = convert_combo.Text;
             progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.MarqueeAnimationSpeed = 30;
             timer.Start();
             progressBar1.Style = ProgressBarStyle.Continuous;
-            await Task.Run(() =>
+            try
             {
-                foreach (string imageinraw in rawlistvariable)
+                await Task.Run(() =>
                 {
-                    using (MagickImage image = new MagickImage(imageinraw))
+                    foreach (string imageinraw in rawlistvariable)
                     {
-                        var oldfn = Path.GetFileName(imageinraw);
-                        var newfn = Path.ChangeExtension(oldfn, convert_combo.Text);
-                        var combine = Path.Combine(savePath, newfn);
-                        image.Write(combine);
+                        using (MagickImage image = new MagickImage(imageinraw))
+                        {
+                            var oldfn = Path.GetFileName(imageinraw);
+                            var newfn = Path.ChangeExtension(oldfn, extention);
+                            var combine = Path.Combine(savePath, newfn);
+                            image.Write(combine);
 
+                        }
+                        
                     }
                     progressBar1.Increment(100);
                     progressBar1.MarqueeAnimationSpeed = 0;
-                }
-            });
+                    timer.Stop();
+                });
+            }
+            catch (InvalidOperationException)
+            {
+                this.ShowDialog();
+            }
             
         }
         public void UpdateUI(int value)
