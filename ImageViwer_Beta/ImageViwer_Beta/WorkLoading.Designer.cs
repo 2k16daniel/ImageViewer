@@ -34,10 +34,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
-            // timer
-            // 
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 10);
@@ -52,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(414, 45);
             this.Controls.Add(this.progressBar1);
             this.Name = "WorkLoading";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Working On It";
             this.Load += new System.EventHandler(this.WorkLoading_Load);
             this.ResumeLayout(false);

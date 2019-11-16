@@ -133,7 +133,7 @@ namespace ImageViwer_Beta
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "JPEG|*.jpg|Bitmaps|*.bmp|PNG|*.png|GIF|*.gif|TIFF|*.tiff";
+            open.Filter = "JPEG|*.jpg;*.JPEG|Bitmaps|*.bmp;*.BMP|PNG|*.png;*.PNG|GIF|*.gif;*.GIF|TIFF|*.tiff;*.TIFF";
 
             open.Multiselect = true;
             open.ValidateNames = true;

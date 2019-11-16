@@ -15,14 +15,22 @@ namespace ImageViwer_Beta
 {
     public partial class RawConverter : Form
     {
+        private readonly SynchronizationContext synchronizationContext;
+        private DateTime previousTime = DateTime.Now;  
         List<string> rawlistvariable = new List<string>();
         string savePath;
         int pCurrentImage = -1;
         public RawConverter()
         {
             InitializeComponent();
+            synchronizationContext = SynchronizationContext.Current;
             //this.comboBoxType.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.convert_combo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+        void RawConverter_shown(object sender, EventArgs e)
+        {
+            backgroundWorker.RunWorkerAsync();
         }
 
         private void openRaw_Click(object sender, EventArgs e)
@@ -50,7 +58,7 @@ namespace ImageViwer_Beta
 
         private void RawConverter_Load(object sender, EventArgs e)
         {
-
+            backgroundWorker.RunWorkerAsync();
         }
 
         private void browse_btn_Click(object sender, EventArgs e)
@@ -68,39 +76,44 @@ namespace ImageViwer_Beta
 
         private async void convert_btn_Click(object sender, EventArgs e)
         {
-            /* Pag gagayahan pra sa progress bar
-             * private async void button1_Click(object sender, EventArgs e)
+            
+            progressBar1.Style = ProgressBarStyle.Marquee;
+            progressBar1.MarqueeAnimationSpeed = 30;
+            timer.Start();
+            progressBar1.Style = ProgressBarStyle.Continuous;
+            await Task.Run(() =>
             {
-                Stopwatch timer = new Stopwatch();
-                var openFileDialog1 = new OpenFileDialog();
-                progressBar1.Style = ProgressBarStyle.Marquee;
-                progressBar1.MarqueeAnimationSpeed = 30;  
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {      
-                    timer.Start();
-                    textBox1.Text = await Task.Run(() => 
-                        GetFileMD5Hash(openFileDialog1.FileName));
-                    timer.Stop();
-                    lblTime.Text = timer.Elapsed.ToString();
-                    progressBar1.Style = ProgressBarStyle.Continuous;
-                    progressBar1.Increment(100);
-                }
-                progressBar1.MarqueeAnimationSpeed = 0;
-            } 
-             */
-            foreach (string imageinraw in rawlistvariable)
-            {
-                using (MagickImage image = new MagickImage(imageinraw))
+                foreach (string imageinraw in rawlistvariable)
                 {
-                    var oldfn = Path.GetFileName(imageinraw);
-                    var newfn = Path.ChangeExtension(oldfn, convert_combo.Text);
-                    var combine = Path.Combine(savePath, newfn);
-                    image.Write(combine);
+                    using (MagickImage image = new MagickImage(imageinraw))
+                    {
+                        var oldfn = Path.GetFileName(imageinraw);
+                        var newfn = Path.ChangeExtension(oldfn, convert_combo.Text);
+                        var combine = Path.Combine(savePath, newfn);
+                        image.Write(combine);
+
+                    }
+                    progressBar1.Increment(100);
+                    progressBar1.MarqueeAnimationSpeed = 0;
                 }
-            }
-             
-            //FileLoading.Close();
+            });
+            
         }
+        public void UpdateUI(int value)
+        {
+            var timeNow = DateTime.Now;
+
+            //Here we only refresh our UI each 50 ms  
+            if ((DateTime.Now - previousTime).Milliseconds <= 50) return;
+
+            //Send the update to our UI thread  
+            synchronizationContext.Post(new SendOrPostCallback(o =>
+            {
+                label1.Text = @"Count : " + (int)o;
+            }), value);
+
+            previousTime = timeNow;
+        } 
 
         private void RawList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -117,6 +130,8 @@ namespace ImageViwer_Beta
                 timer.Enabled = false;
             }
         }
+
+        
 
         
     }

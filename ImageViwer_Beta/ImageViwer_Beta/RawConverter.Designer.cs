@@ -78,9 +78,9 @@
             // 
             this.convert_combo.FormattingEnabled = true;
             this.convert_combo.Items.AddRange(new object[] {
-            "JPEG",
-            "PNG",
-            "BMP"});
+            "jpeg",
+            "png",
+            "bmp"});
             this.convert_combo.Location = new System.Drawing.Point(183, 31);
             this.convert_combo.Name = "convert_combo";
             this.convert_combo.Size = new System.Drawing.Size(136, 21);
