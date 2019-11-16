@@ -55,11 +55,13 @@
             // 
             // RawList
             // 
+            this.RawList.AllowDrop = true;
             this.RawList.FormattingEnabled = true;
             this.RawList.HorizontalScrollbar = true;
             this.RawList.Location = new System.Drawing.Point(13, 3);
             this.RawList.Name = "RawList";
             this.RawList.ScrollAlwaysVisible = true;
+            this.RawList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.RawList.Size = new System.Drawing.Size(151, 199);
             this.RawList.Sorted = true;
             this.RawList.TabIndex = 0;
