@@ -94,7 +94,6 @@ namespace ImageViwer_Beta
                             var newfn = Path.ChangeExtension(oldfn, extention);
                             var combine = Path.Combine(savePath, newfn);
                             image.Write(combine);
-
                         }
                         
                     }
@@ -140,9 +139,5 @@ namespace ImageViwer_Beta
                 timer.Enabled = false;
             }
         }
-
-        
-
-        
     }
 }
