@@ -79,7 +79,7 @@ namespace ImageViwer_Beta
             string extention;
             extention = convert_combo.Text;
             progressBar1.Style = ProgressBarStyle.Marquee;
-            progressBar1.MarqueeAnimationSpeed = 30;
+            progressBar1.MarqueeAnimationSpeed = 15;
             timer.Start();
             progressBar1.Style = ProgressBarStyle.Continuous;
             try
@@ -95,16 +95,21 @@ namespace ImageViwer_Beta
                             var combine = Path.Combine(savePath, newfn);
                             image.Write(combine);
                         }
-                        
                     }
-                    progressBar1.Increment(100);
-                    //progressBar1.MarqueeAnimationSpeed = 0;
-                    timer.Stop();
                 });
+                timer.Stop();
+                progressBar1.MarqueeAnimationSpeed = 200;
+                progressBar1.Increment(100);
+                progressBar1.ResetText();
+                MessageBox.Show("Successfully saved", "Raw Converter", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (InvalidOperationException)
             {
                 this.ShowDialog();
+            }
+            catch (MagickCoderErrorException)
+            {
+                MessageBox.Show("Invalid File! or the file is Currupted.");
             }
             
         }
