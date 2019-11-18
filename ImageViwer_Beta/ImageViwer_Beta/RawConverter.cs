@@ -76,6 +76,7 @@ namespace ImageViwer_Beta
 
         private async void convert_btn_Click(object sender, EventArgs e)
         {
+            progressBar1.Value = 0;
             string extention;
             extention = convert_combo.Text;
             progressBar1.Style = ProgressBarStyle.Marquee;
@@ -85,18 +86,30 @@ namespace ImageViwer_Beta
             try
             {
                 await Task.Run(() =>
-                {
+                {   
+                    
                     foreach (string imageinraw in rawlistvariable)
                     {
-                        using (MagickImage image = new MagickImage(imageinraw))
+                        try {
+                            using (MagickImage image = new MagickImage(imageinraw))
+                            {
+                                var oldfn = Path.GetFileName(imageinraw);
+                                var newfn = Path.ChangeExtension(oldfn, extention);
+                                var combine = Path.Combine(savePath, newfn);
+                                image.Write(combine);
+                            }
+                        }
+                        catch (MagickCoderErrorException)
                         {
-                            var oldfn = Path.GetFileName(imageinraw);
-                            var newfn = Path.ChangeExtension(oldfn, extention);
-                            var combine = Path.Combine(savePath, newfn);
-                            image.Write(combine);
+                            MessageBox.Show("Invalid / Currupted file.", "ERROR : 0326", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //this.Close();
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            //this.ShowDialog();
                         }
                     }
-                });
+               });
                 timer.Stop();
                 progressBar1.MarqueeAnimationSpeed = 200;
                 progressBar1.Increment(100);
@@ -106,10 +119,6 @@ namespace ImageViwer_Beta
             catch (InvalidOperationException)
             {
                 this.ShowDialog();
-            }
-            catch (MagickCoderErrorException)
-            {
-                MessageBox.Show("Invalid File! or the file is Currupted.");
             }
             
         }
