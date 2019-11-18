@@ -98,7 +98,7 @@ namespace ImageViwer_Beta
                         
                     }
                     progressBar1.Increment(100);
-                    progressBar1.MarqueeAnimationSpeed = 0;
+                    //progressBar1.MarqueeAnimationSpeed = 0;
                     timer.Stop();
                 });
             }

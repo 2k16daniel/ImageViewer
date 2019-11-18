@@ -134,6 +134,7 @@
             this.openRawPhotoToolStripMenuItem.Name = "openRawPhotoToolStripMenuItem";
             this.openRawPhotoToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.openRawPhotoToolStripMenuItem.Text = "Open Raw Photo";
+            this.openRawPhotoToolStripMenuItem.Click += new System.EventHandler(this.openRawPhotoToolStripMenuItem_Click);
             // 
             // rawConverterToolStripMenuItem
             // 

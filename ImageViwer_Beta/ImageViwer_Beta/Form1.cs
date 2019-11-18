@@ -1,4 +1,5 @@
-﻿using MetadataExtractor;
+﻿using ImageMagick;
+using MetadataExtractor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace ImageViwer_Beta
     {   
 
         List<string> imagelist = new List<string>();
+        string rawImage;
         int pCurrentImage = -1;
         public Form1()
         {
@@ -254,7 +256,36 @@ namespace ImageViwer_Beta
             }
         }
 
-      
+        private void openRawPhotoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "CANON|*.cr2;*.crw|NIKON|*.ORF|FUJI|*.raf|GIF|*.gif|TIFF|*.tiff";
 
+            open.Multiselect = false;
+            open.ValidateNames = true;
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                rawImage = open.FileName;
+                try
+                {
+                    using (MagickImage image = new MagickImage(rawImage))
+                    {
+                        var oldfn = Path.GetFileName(rawImage);
+                        var newfn = Path.ChangeExtension(oldfn, ".jpg");
+                        image.Write(newfn);
+                        Image img = Image.FromFile(newfn);
+                        photobox = img;
+                        label1.Text = oldfn;
+                    }
+                }
+                catch (MagickCoderErrorException)
+                {
+                    MessageBox.Show("Invalid File! or the file is Currupted.");
+                }
+            }
+        }
         }
     }
