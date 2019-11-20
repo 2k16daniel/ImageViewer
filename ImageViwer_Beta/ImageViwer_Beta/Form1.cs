@@ -297,5 +297,11 @@ namespace ImageViwer_Beta
                 }
             }
         }
+
+        private void selectDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CameraForm camForm = new CameraForm();
+            camForm.ShowDialog();
+        }
         }
     }

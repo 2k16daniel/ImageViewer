@@ -48,12 +48,12 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Prev_btn = new System.Windows.Forms.Button();
             this.Next_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.FileNameLabel = new System.Windows.Forms.Label();
-            this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -214,6 +214,21 @@
             this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             // 
+            // cameraToolStripMenuItem
+            // 
+            this.cameraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectDirectoryToolStripMenuItem});
+            this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.cameraToolStripMenuItem.Text = "Camera";
+            // 
+            // selectDirectoryToolStripMenuItem
+            // 
+            this.selectDirectoryToolStripMenuItem.Name = "selectDirectoryToolStripMenuItem";
+            this.selectDirectoryToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.selectDirectoryToolStripMenuItem.Text = "Select Directory";
+            this.selectDirectoryToolStripMenuItem.Click += new System.EventHandler(this.selectDirectoryToolStripMenuItem_Click);
+            // 
             // Prev_btn
             // 
             this.Prev_btn.Location = new System.Drawing.Point(557, 530);
@@ -250,20 +265,6 @@
             this.FileNameLabel.Name = "FileNameLabel";
             this.FileNameLabel.Size = new System.Drawing.Size(0, 13);
             this.FileNameLabel.TabIndex = 14;
-            // 
-            // cameraToolStripMenuItem
-            // 
-            this.cameraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.selectDirectoryToolStripMenuItem});
-            this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
-            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.cameraToolStripMenuItem.Text = "Camera";
-            // 
-            // selectDirectoryToolStripMenuItem
-            // 
-            this.selectDirectoryToolStripMenuItem.Name = "selectDirectoryToolStripMenuItem";
-            this.selectDirectoryToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.selectDirectoryToolStripMenuItem.Text = "Select Directory";
             // 
             // Form1
             // 

@@ -14,7 +14,7 @@ namespace ImageViwer_Beta
     {
         // initialize global Variable
         Form1 menuForm = new Form1();
-        List<string> CameraDir = new List<string>();
+        string CameraDir;
         public CameraForm()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace ImageViwer_Beta
             if (result == DialogResult.OK)
             {
                 CameraDir = folderBrowserDialog1.SelectedPath;
-                SaveFileLocation.Text = savePath;
+                BrowseCameraDirectory.Text = CameraDir;
             }
             
         }
