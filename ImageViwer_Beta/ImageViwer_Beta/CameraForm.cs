@@ -12,7 +12,6 @@ namespace ImageViwer_Beta
 {
     public partial class CameraForm : Form
     {
-        // initialize global Variable
         Form1 menuForm = new Form1();
         string CameraDir;
         public CameraForm()

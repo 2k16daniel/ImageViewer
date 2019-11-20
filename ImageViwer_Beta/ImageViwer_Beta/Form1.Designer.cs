@@ -54,6 +54,7 @@
             this.Next_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.FileNameLabel = new System.Windows.Forms.Label();
+            this.refresh_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -266,11 +267,22 @@
             this.FileNameLabel.Size = new System.Drawing.Size(0, 13);
             this.FileNameLabel.TabIndex = 14;
             // 
+            // refresh_btn
+            // 
+            this.refresh_btn.Location = new System.Drawing.Point(12, 298);
+            this.refresh_btn.Name = "refresh_btn";
+            this.refresh_btn.Size = new System.Drawing.Size(207, 38);
+            this.refresh_btn.TabIndex = 15;
+            this.refresh_btn.Text = "REFRESH";
+            this.refresh_btn.UseVisualStyleBackColor = true;
+            this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 579);
+            this.Controls.Add(this.refresh_btn);
             this.Controls.Add(this.FileNameLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Next_btn);
@@ -321,6 +333,7 @@
         private System.Windows.Forms.Label FileNameLabel;
         private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectDirectoryToolStripMenuItem;
+        private System.Windows.Forms.Button refresh_btn;
     }
 }
 

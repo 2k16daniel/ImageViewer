@@ -32,8 +32,39 @@ namespace ImageViwer_Beta
 
         public void CameraDirectorySet(string CamDir)
         {
+            MessageBox.Show(CamDir);
+            //var files = System.IO.Directory.EnumerateFiles(CamDir, "*.*", SearchOption.AllDirectories)
+            //.Where(s => s.EndsWith(".jpg") || s.EndsWith(".JPG"));
+            DirectoryInfo dinfo = new DirectoryInfo(CamDir);
+            FileInfo[] Files = dinfo.GetFiles("*.jpg");
+            foreach (FileInfo file in Files)
+            {
+                imagelist.Add(file.FullName);
+                ImageListview.Items.Add(file.Name, 0);
+                ImageListview.Refresh();
+            } 
+        }
+
+        private void openPhotoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             ImageListview.Clear();
-            
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "JPEG|*.jpg;*.JPEG|Bitmaps|*.bmp;*.BMP|PNG|*.png;*.PNG|GIF|*.gif;*.GIF|TIFF|*.tiff;*.TIFF";
+            open.Multiselect = true;
+            open.ValidateNames = true;
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                imagelist.Clear();
+                ImageListview.Items.Clear();
+                foreach (string filename in open.FileNames)
+                {
+                    FileInfo imginfo = new FileInfo(filename);
+                    imagelist.Add(imginfo.FullName);
+                    ImageListview.Items.Add(imginfo.Name, 0);
+                }
+            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -130,28 +161,7 @@ namespace ImageViwer_Beta
             }
         }
 
-        private void openPhotoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // open file dialog   
-            OpenFileDialog open = new OpenFileDialog();
-            // image filters  
-            open.Filter = "JPEG|*.jpg;*.JPEG|Bitmaps|*.bmp;*.BMP|PNG|*.png;*.PNG|GIF|*.gif;*.GIF|TIFF|*.tiff;*.TIFF";
-
-            open.Multiselect = true;
-            open.ValidateNames = true;
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                imagelist.Clear();
-                ImageListview.Items.Clear();
-                foreach (string filename in open.FileNames)
-                {
-                    FileInfo imginfo = new FileInfo(filename);
-                    imagelist.Add(imginfo.FullName);
-                    ImageListview.Items.Add(imginfo.Name, 0);
-                }
-            }
-        }
-
+        
         private void imageMetadataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string[] infoImage = new string[40];
@@ -265,7 +275,7 @@ namespace ImageViwer_Beta
 
         private void openRawPhotoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            ImageListview.Clear();
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
@@ -302,6 +312,11 @@ namespace ImageViwer_Beta
         {
             CameraForm camForm = new CameraForm();
             camForm.ShowDialog();
+        }
+
+        private void refresh_btn_Click(object sender, EventArgs e)
+        {
+            ImageListview.Refresh();
         }
         }
     }
