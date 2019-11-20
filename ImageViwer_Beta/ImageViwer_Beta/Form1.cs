@@ -19,6 +19,7 @@ namespace ImageViwer_Beta
 
         List<string> imagelist = new List<string>();
         string rawImage;
+        string CameraGlobalDirectory;
         int pCurrentImage = -1;
         public Form1()
         {
@@ -28,8 +29,12 @@ namespace ImageViwer_Beta
             
         }
 
-        
 
+        public void CameraDirectorySet(string CamDir)
+        {
+            ImageListview.Clear();
+            
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
            

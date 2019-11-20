@@ -134,6 +134,7 @@
             this.SaveFileLocation.Name = "SaveFileLocation";
             this.SaveFileLocation.Size = new System.Drawing.Size(149, 20);
             this.SaveFileLocation.TabIndex = 7;
+            this.SaveFileLocation.TextChanged += new System.EventHandler(this.SaveFileLocation_TextChanged);
             // 
             // timer
             // 

@@ -52,6 +52,8 @@
             this.Next_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.FileNameLabel = new System.Windows.Forms.Label();
+            this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -105,7 +107,8 @@
             this.propertiesToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.aboutToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.cameraToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -248,6 +251,20 @@
             this.FileNameLabel.Size = new System.Drawing.Size(0, 13);
             this.FileNameLabel.TabIndex = 14;
             // 
+            // cameraToolStripMenuItem
+            // 
+            this.cameraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectDirectoryToolStripMenuItem});
+            this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.cameraToolStripMenuItem.Text = "Camera";
+            // 
+            // selectDirectoryToolStripMenuItem
+            // 
+            this.selectDirectoryToolStripMenuItem.Name = "selectDirectoryToolStripMenuItem";
+            this.selectDirectoryToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.selectDirectoryToolStripMenuItem.Text = "Select Directory";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,6 +318,8 @@
         private System.Windows.Forms.Button Next_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label FileNameLabel;
+        private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectDirectoryToolStripMenuItem;
     }
 }
 

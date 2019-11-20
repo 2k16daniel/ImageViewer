@@ -167,5 +167,10 @@ namespace ImageViwer_Beta
                 MessageBox.Show("Item removed");
             }
         }
+
+        private void SaveFileLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
