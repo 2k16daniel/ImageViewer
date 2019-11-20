@@ -180,11 +180,12 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Visible = false;
             // 
             // caseStudyTeamToolStripMenuItem
             // 
             this.caseStudyTeamToolStripMenuItem.Name = "caseStudyTeamToolStripMenuItem";
-            this.caseStudyTeamToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.caseStudyTeamToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.caseStudyTeamToolStripMenuItem.Text = "Case Study Team";
             // 
             // helpToolStripMenuItem
@@ -195,6 +196,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Visible = false;
             // 
             // documentationToolStripMenuItem
             // 

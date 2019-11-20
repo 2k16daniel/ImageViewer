@@ -44,17 +44,12 @@ namespace ImageViwer_Beta
         {
             if (ImageListview.FocusedItem != null)
             {
-                /* using (Photo phto = new Photo())
-                 {
-                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
-                     phto.imagebox = img;
-                     phto.ShowDialog();
-
-                 } */
+                
                 try
                 {
                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
                     photobox = img;
+                    FileNameLabel.Text = Path.GetFileName(imagelist[ImageListview.FocusedItem.Index]);
                 }
                 catch (Exception ex)
                 {
@@ -195,24 +190,31 @@ namespace ImageViwer_Beta
 
         private void viewFullsizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ImageListview.FocusedItem != null)
+            try
             {
-                try
+                Photo phto = new Photo();
+                if (ImageListview.FocusedItem != null)
                 {
-                    using (Photo phto = new Photo())
-                    {
-                        Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
-                        phto.imagebox = img;
-                        phto.ShowDialog();
 
-                    }
+                    Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
+                    phto.imagebox = img;
+                    phto.ShowDialog();
+
+
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information
-                    );
+
+                    Image img = Image.FromFile(rawImage);
+                    phto.imagebox = img;
+                    phto.Show();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Invalid File! Please Make sure to choose the valid file!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error
+                );
             }
         }
 
@@ -281,9 +283,12 @@ namespace ImageViwer_Beta
                         label1.Text = oldfn;
                     }
                 }
-                catch (MagickCoderErrorException)
+                catch (MagickCoderErrorException errorCodec)
                 {
-                    MessageBox.Show("Invalid File! or the file is Currupted.");
+                    //MessageBox.Show("Invalid File! or the file is Currupted.");
+                    MessageBox.Show(this, errorCodec.Message, "Invalid File! or the file is Currupted.",
+                MessageBoxButtons.OK, MessageBoxIcon.Error
+                );
                 }
             }
         }
