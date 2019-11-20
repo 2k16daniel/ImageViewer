@@ -19,7 +19,6 @@ namespace ImageViwer_Beta
         private DateTime previousTime = DateTime.Now;  
         List<string> rawlistvariable = new List<string>();
         string savePath;
-        int pCurrentImage = -1;
         public RawConverter()
         {
             InitializeComponent();
@@ -76,6 +75,7 @@ namespace ImageViwer_Beta
 
         private async void convert_btn_Click(object sender, EventArgs e)
         {
+            byte isFileError = 0;
             progressBar1.Value = 0;
             string extention;
             extention = convert_combo.Text;
@@ -102,7 +102,7 @@ namespace ImageViwer_Beta
                         catch (MagickCoderErrorException)
                         {
                             MessageBox.Show("Invalid / Currupted file.", "ERROR : 0326", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            //this.Close();
+                            isFileError = 1;
                         }
                         catch (InvalidOperationException)
                         {
@@ -114,7 +114,9 @@ namespace ImageViwer_Beta
                 progressBar1.MarqueeAnimationSpeed = 200;
                 progressBar1.Increment(100);
                 progressBar1.ResetText();
+                if (isFileError != 1){
                 MessageBox.Show("Successfully saved", "Raw Converter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (InvalidOperationException)
             {
