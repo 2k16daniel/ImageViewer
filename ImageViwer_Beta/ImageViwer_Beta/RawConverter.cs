@@ -76,51 +76,68 @@ namespace ImageViwer_Beta
         private async void convert_btn_Click(object sender, EventArgs e)
         {
             byte isFileError = 0;
-            progressBar1.Value = 0;
-            string extention;
-            extention = convert_combo.Text;
-            progressBar1.Style = ProgressBarStyle.Marquee;
-            progressBar1.MarqueeAnimationSpeed = 15;
-            timer.Start();
-            progressBar1.Style = ProgressBarStyle.Continuous;
-            try
+            if (string.IsNullOrEmpty(convert_combo.Text) || string.IsNullOrEmpty(SaveFileLocation.Text) || string.IsNullOrEmpty(RawList.Text))
             {
-                await Task.Run(() =>
-                {   
-                    
-                    foreach (string imageinraw in rawlistvariable)
+                MessageBox.Show("Yout must complete the field first!", "ERROR : 0x333", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isFileError = 1;
+            }
+            else
+            {
+                
+                progressBar1.Value = 0;
+                string extention;
+                extention = convert_combo.Text;
+                progressBar1.Style = ProgressBarStyle.Marquee;
+                progressBar1.MarqueeAnimationSpeed = 15;
+                timer.Start();
+                progressBar1.Style = ProgressBarStyle.Continuous;
+                try
+                {
+                    await Task.Run(() =>
                     {
-                        try {
-                            using (MagickImage image = new MagickImage(imageinraw))
+                        foreach (string imageinraw in rawlistvariable)
+                        {
+                            try
                             {
-                                var oldfn = Path.GetFileName(imageinraw);
-                                var newfn = Path.ChangeExtension(oldfn, extention);
-                                var combine = Path.Combine(savePath, newfn);
-                                image.Write(combine);
+                                using (MagickImage image = new MagickImage(imageinraw))
+                                {
+                                    var oldfn = Path.GetFileName(imageinraw);
+                                    var newfn = Path.ChangeExtension(oldfn, extention);
+                                    var combine = Path.Combine(savePath, newfn);
+                                    image.Write(combine);
+                                }
+                            }
+                            catch (MagickCoderErrorException)
+                            {
+                                MessageBox.Show("Invalid / Currupted file.", "ERROR : 0326", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                isFileError = 1;
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                //this.ShowDialog();
+                            }
+                            catch (MagickMissingDelegateErrorException)
+                            {
+                                MessageBox.Show("Please select the file extension first", "ERROR : 0x333", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                isFileError = 1;
                             }
                         }
-                        catch (MagickCoderErrorException)
-                        {
-                            MessageBox.Show("Invalid / Currupted file.", "ERROR : 0326", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            isFileError = 1;
-                        }
-                        catch (InvalidOperationException)
-                        {
-                            //this.ShowDialog();
-                        }
+                    });
+                    timer.Stop();
+                    progressBar1.MarqueeAnimationSpeed = 200;
+                    progressBar1.Increment(100);
+                    progressBar1.ResetText();
+                    if (isFileError != 1)
+                    {
+                        MessageBox.Show("Successfully saved", "Raw Converter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        rawlistvariable.Clear();
                     }
-               });
-                timer.Stop();
-                progressBar1.MarqueeAnimationSpeed = 200;
-                progressBar1.Increment(100);
-                progressBar1.ResetText();
-                if (isFileError != 1){
-                MessageBox.Show("Successfully saved", "Raw Converter", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
-            catch (InvalidOperationException)
-            {
-                this.ShowDialog();
+
+                catch (InvalidOperationException)
+                {
+                    this.ShowDialog();
+                }
             }
             
         }

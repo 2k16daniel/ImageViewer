@@ -105,9 +105,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(183, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "CONVERT TO :";
+            this.label1.Text = "Compress to  :";
             // 
             // label2
             // 

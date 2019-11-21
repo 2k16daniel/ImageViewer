@@ -129,20 +129,7 @@ namespace ImageViwer_Beta
         }
         private void bttn_fullsize_Click(object sender, EventArgs e)
         {
-            
-            /* Usless code , save this for reference!!
-        
-             * private void PictureBox_Click(object sender, EventArgs e)
-            {
-                OpenFileDialog open = new OpenFileDialog();
-                open.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
-                if (open.ShowDialog() == DialogResult.OK)
-                {
-                    PictureBox Picture = new PictureBox();
-                    Picture.ImageLocation = open.FileName;
-                
-                }
-            } */
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -184,14 +171,11 @@ namespace ImageViwer_Beta
             try
             {
                 var directories = ImageMetadataReader.ReadMetadata(imagelist[ImageListview.FocusedItem.Index]);
-
-
                 foreach (var directory in directories)
                 {
 
                     foreach (var tag in directory.Tags)
                     {
-
                         infoImage[i] = tag.Name + ":  " + tag.Description;
                         toDisplay = string.Join(Environment.NewLine, infoImage);
                         i++;
