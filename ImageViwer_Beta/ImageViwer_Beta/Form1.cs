@@ -19,30 +19,28 @@ namespace ImageViwer_Beta
 
         List<string> imagelist = new List<string>();
         string rawImage;
-        string CameraGlobalDirectory;
+        //string CameraGlobalDirectory;
         int pCurrentImage = -1;
+        public static class Globals
+        {
+            public const Int32 BUFFER_SIZE = 512; // Unmodifiable
+            public static String CameraGlobalDirectory; // Modifiable
+            public static readonly String CODE_PREFIX = "US-"; // Unmodifiable
+        }
+    
         public Form1()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MainPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             
+            
         }
 
 
         public void CameraDirectorySet(string CamDir)
         {
-            MessageBox.Show(CamDir);
-            //var files = System.IO.Directory.EnumerateFiles(CamDir, "*.*", SearchOption.AllDirectories)
-            //.Where(s => s.EndsWith(".jpg") || s.EndsWith(".JPG"));
-            DirectoryInfo dinfo = new DirectoryInfo(CamDir);
-            FileInfo[] Files = dinfo.GetFiles("*.jpg");
-            foreach (FileInfo file in Files)
-            {
-                imagelist.Add(file.FullName);
-                ImageListview.Items.Add(file.Name, 0);
-                ImageListview.Refresh();
-            } 
+            Globals.CameraGlobalDirectory = CamDir;
         }
 
         private void openPhotoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -316,7 +314,18 @@ namespace ImageViwer_Beta
 
         private void refresh_btn_Click(object sender, EventArgs e)
         {
-            ImageListview.Refresh();
+            MessageBox.Show(Globals.CameraGlobalDirectory);
+            DirectoryInfo dinfo = new DirectoryInfo(Globals.CameraGlobalDirectory);
+            var Files = System.IO.Directory.GetFiles(Globals.CameraGlobalDirectory, "*.*", SearchOption.AllDirectories)
+            .Where(s => s.EndsWith(".JPEG") || s.EndsWith(".jpg") || s.EndsWith(".JPG"));
+
+            foreach (string file in Files)
+            {
+                FileInfo imginfo = new FileInfo(file);
+                imagelist.Add(imginfo.FullName);
+                ImageListview.Items.Add(imginfo.Name, 0);
+                ImageListview.Refresh();
+            } 
         }
         }
     }

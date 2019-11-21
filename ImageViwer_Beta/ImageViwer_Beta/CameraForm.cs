@@ -26,23 +26,20 @@ namespace ImageViwer_Beta
 
         private void browse_btn_Click(object sender, EventArgs e)
         {
-            var folderBrowserDialog1 = new FolderBrowserDialog();
-
+            FolderBrowserDialog folderPicker = new FolderBrowserDialog();
             // Show the FolderBrowserDialog.
-            DialogResult result = folderBrowserDialog1.ShowDialog();
+            DialogResult result = folderPicker.ShowDialog();
             if (result == DialogResult.OK)
             {
-                CameraDir = folderBrowserDialog1.SelectedPath;
+                CameraDir = folderPicker.SelectedPath;
                 BrowseCameraDirectory.Text = CameraDir;
             }
             
         }
-
         private void set_btn_Click(object sender, EventArgs e)
         {
-            menuForm.CameraDirectorySet(CameraDir);
+            ImageViwer_Beta.Form1.Globals.CameraGlobalDirectory = CameraDir;
+            
         }
-
-        
     }
 }
