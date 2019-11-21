@@ -65,7 +65,7 @@ namespace ImageViwer_Beta
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "CANON|*.cr2;*.crw|NIKON|*.ORF|FUJI|*.raf|EPSON|.*erf|KODAK|.*tif|POLAROID|.*x3f|SONY|.*arw|YRGB|.*raw";
+            open.Filter = "JPEG|*.jpg;*.JPEG|Bitmaps|*.bmp;*.BMP|PNG|*.png;*.PNG|GIF|*.gif;*.GIF|TIFF|*.tiff;*.TIFF";
             open.Multiselect = true;
             open.ValidateNames = true;
             if (open.ShowDialog() == DialogResult.OK)
