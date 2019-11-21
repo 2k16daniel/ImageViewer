@@ -39,7 +39,6 @@ namespace ImageViwer_Beta
         private void set_btn_Click(object sender, EventArgs e)
         {
             ImageViwer_Beta.Form1.Globals.CameraGlobalDirectory = CameraDir;
-            
         }
     }
 }

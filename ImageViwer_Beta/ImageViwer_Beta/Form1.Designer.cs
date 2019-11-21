@@ -70,10 +70,11 @@
             // 
             this.ImageListview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.ImageListview.GridLines = true;
             this.ImageListview.LargeImageList = this.imageList1;
             this.ImageListview.Location = new System.Drawing.Point(12, 35);
             this.ImageListview.Name = "ImageListview";
-            this.ImageListview.Size = new System.Drawing.Size(207, 257);
+            this.ImageListview.Size = new System.Drawing.Size(207, 222);
             this.ImageListview.TabIndex = 2;
             this.ImageListview.UseCompatibleStateImageBehavior = false;
             this.ImageListview.ItemActivate += new System.EventHandler(this.ImageListview_ItemActivate);
@@ -269,7 +270,7 @@
             // 
             // refresh_btn
             // 
-            this.refresh_btn.Location = new System.Drawing.Point(12, 298);
+            this.refresh_btn.Location = new System.Drawing.Point(12, 263);
             this.refresh_btn.Name = "refresh_btn";
             this.refresh_btn.Size = new System.Drawing.Size(207, 38);
             this.refresh_btn.TabIndex = 15;

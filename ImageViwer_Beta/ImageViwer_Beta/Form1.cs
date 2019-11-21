@@ -19,13 +19,11 @@ namespace ImageViwer_Beta
 
         List<string> imagelist = new List<string>();
         string rawImage;
-        //string CameraGlobalDirectory;
+        
         int pCurrentImage = -1;
         public static class Globals
         {
-            public const Int32 BUFFER_SIZE = 512; // Unmodifiable
-            public static String CameraGlobalDirectory; // Modifiable
-            public static readonly String CODE_PREFIX = "US-"; // Unmodifiable
+            public static String CameraGlobalDirectory;
         }
     
         public Form1()
@@ -33,18 +31,36 @@ namespace ImageViwer_Beta
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MainPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            
-            
+            refresh_btn.Visible = false;
         }
 
 
         public void CameraDirectorySet(string CamDir)
         {
+            refresh_btn.Visible = true;
+            imagelist.Clear();
             Globals.CameraGlobalDirectory = CamDir;
+        }
+
+        public void RefreshImageFromListView()
+        {
+            
+            MessageBox.Show(Globals.CameraGlobalDirectory);
+            DirectoryInfo dinfo = new DirectoryInfo(Globals.CameraGlobalDirectory);
+            var Files = System.IO.Directory.GetFiles(Globals.CameraGlobalDirectory, "*.*", SearchOption.AllDirectories)
+            .Where(s => s.EndsWith(".JPEG") || s.EndsWith(".jpg") || s.EndsWith(".JPG"));
+
+            foreach (string file in Files)
+            {
+                FileInfo imginfo = new FileInfo(file);
+                imagelist.Add(imginfo.FullName);
+                ImageListview.Items.Add(imginfo.Name, 0);
+            }
         }
 
         private void openPhotoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            refresh_btn.Visible = false;
             ImageListview.Clear();
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
@@ -308,24 +324,14 @@ namespace ImageViwer_Beta
 
         private void selectDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            refresh_btn.Visible = true;
             CameraForm camForm = new CameraForm();
             camForm.ShowDialog();
         }
 
         private void refresh_btn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Globals.CameraGlobalDirectory);
-            DirectoryInfo dinfo = new DirectoryInfo(Globals.CameraGlobalDirectory);
-            var Files = System.IO.Directory.GetFiles(Globals.CameraGlobalDirectory, "*.*", SearchOption.AllDirectories)
-            .Where(s => s.EndsWith(".JPEG") || s.EndsWith(".jpg") || s.EndsWith(".JPG"));
-
-            foreach (string file in Files)
-            {
-                FileInfo imginfo = new FileInfo(file);
-                imagelist.Add(imginfo.FullName);
-                ImageListview.Items.Add(imginfo.Name, 0);
-                ImageListview.Refresh();
-            } 
+            RefreshImageFromListView();
         }
-        }
+      }
     }
