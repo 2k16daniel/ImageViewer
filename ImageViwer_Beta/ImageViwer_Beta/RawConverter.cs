@@ -76,7 +76,7 @@ namespace ImageViwer_Beta
         private async void convert_btn_Click(object sender, EventArgs e)
         {
             byte isFileError = 0;
-            if (string.IsNullOrEmpty(convert_combo.Text) || string.IsNullOrEmpty(SaveFileLocation.Text) || string.IsNullOrEmpty(RawList.Text))
+            if (string.IsNullOrEmpty(convert_combo.Text) || string.IsNullOrEmpty(SaveFileLocation.Text))
             {
                 MessageBox.Show("Yout must complete the field first!", "ERROR : 0x333", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 isFileError = 1;
