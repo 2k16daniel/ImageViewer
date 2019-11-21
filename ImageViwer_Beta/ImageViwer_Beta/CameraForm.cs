@@ -26,19 +26,25 @@ namespace ImageViwer_Beta
 
         private void browse_btn_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderPicker = new FolderBrowserDialog();
-            // Show the FolderBrowserDialog.
-            DialogResult result = folderPicker.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                CameraDir = folderPicker.SelectedPath;
-                BrowseCameraDirectory.Text = CameraDir;
-            }
-            
+                FolderBrowserDialog folderPicker = new FolderBrowserDialog();
+                // Show the FolderBrowserDialog.
+                DialogResult result = folderPicker.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    CameraDir = folderPicker.SelectedPath;
+                    BrowseCameraDirectory.Text = CameraDir;
+                }
         }
         private void set_btn_Click(object sender, EventArgs e)
         {
-            ImageViwer_Beta.Form1.Globals.CameraGlobalDirectory = CameraDir;
+            if (string.IsNullOrEmpty(BrowseCameraDirectory.Text))
+            {
+                MessageBox.Show("Yout must complete the field first!", "ERROR : 0x333", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                ImageViwer_Beta.Form1.Globals.CameraGlobalDirectory = CameraDir;
+            }
         }
     }
 }
