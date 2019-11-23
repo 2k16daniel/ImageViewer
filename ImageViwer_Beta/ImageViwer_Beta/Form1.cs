@@ -80,6 +80,26 @@ namespace ImageViwer_Beta
                 }
             }
         }
+
+        private void Doc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //Print image
+            Bitmap bm = new Bitmap(MainPictureBox.Width, MainPictureBox.Height);
+            MainPictureBox.DrawToBitmap(bm, new Rectangle(0, 0, MainPictureBox.Width, MainPictureBox.Height));
+            e.Graphics.DrawImage(bm, 0, 0);
+            bm.Dispose();
+        }
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Show print dialog
+            PrintDialog pd = new PrintDialog();
+            System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();
+            doc.PrintPage += Doc_PrintPage;
+            pd.Document = doc;
+            if (pd.ShowDialog() == DialogResult.OK)
+                doc.Print();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
            

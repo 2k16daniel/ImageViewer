@@ -37,7 +37,7 @@ namespace ImageViwer_Beta
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "CANON|*.cr2;*.crw|NIKON|*.ORF|FUJI|*.raf|GIF|*.gif|TIFF|*.tiff";
+            open.Filter = "CANON|*.cr2;*.crw|NIKON|*.ORF|FUJI|*.raf|EPSON|.*erf|KODAK|.*tif|POLAROID|.*x3f|SONY|.*arw|YRGB|.*raw";
 
             open.Multiselect = true;
             open.ValidateNames = true;
@@ -88,7 +88,7 @@ namespace ImageViwer_Beta
                 string extention;
                 extention = convert_combo.Text;
                 progressBar1.Style = ProgressBarStyle.Marquee;
-                progressBar1.MarqueeAnimationSpeed = 15;
+                progressBar1.MarqueeAnimationSpeed = 1;
                 timer.Start();
                 progressBar1.Style = ProgressBarStyle.Continuous;
                 try
@@ -164,7 +164,7 @@ namespace ImageViwer_Beta
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            progressBar1.Value = progressBar1.Value + 2;
+            progressBar1.Value = progressBar1.Value + 1;
             if(progressBar1.Value > 99){
                 RawConverter rawloading = new RawConverter();
                 rawloading.Show();

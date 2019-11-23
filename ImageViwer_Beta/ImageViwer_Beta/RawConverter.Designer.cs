@@ -84,7 +84,8 @@
             "JPEG",
             "PNG",
             "BMP",
-            "TIFF"});
+            "TIFF",
+            "PDF"});
             this.convert_combo.Location = new System.Drawing.Point(183, 31);
             this.convert_combo.Name = "convert_combo";
             this.convert_combo.Size = new System.Drawing.Size(136, 21);

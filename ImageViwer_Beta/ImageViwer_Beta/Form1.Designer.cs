@@ -55,6 +55,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.FileNameLabel = new System.Windows.Forms.Label();
             this.refresh_btn = new System.Windows.Forms.Button();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -101,6 +102,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(815, 489);
             this.panel1.TabIndex = 8;
+
             // 
             // menuStrip1
             // 
@@ -110,6 +112,7 @@
             this.viewToolStripMenuItem,
             this.aboutToolStripMenuItem,
             this.helpToolStripMenuItem,
+            this.printToolStripMenuItem,
             this.cameraToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -117,6 +120,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1082, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
+
             // 
             // fileToolStripMenuItem
             // 
@@ -127,6 +131,7 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+
             // 
             // openPhotoToolStripMenuItem
             // 
@@ -156,6 +161,7 @@
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.propertiesToolStripMenuItem.Text = "Properties";
+
             // 
             // imageMetadataToolStripMenuItem
             // 
@@ -171,6 +177,7 @@
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
+
             // 
             // viewFullsizeToolStripMenuItem
             // 
@@ -187,11 +194,11 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Visible = false;
-            // 
+
             // caseStudyTeamToolStripMenuItem
             // 
             this.caseStudyTeamToolStripMenuItem.Name = "caseStudyTeamToolStripMenuItem";
-            this.caseStudyTeamToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.caseStudyTeamToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.caseStudyTeamToolStripMenuItem.Text = "Case Study Team";
             // 
             // helpToolStripMenuItem
@@ -203,18 +210,21 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Visible = false;
+
             // 
             // documentationToolStripMenuItem
             // 
             this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
             this.documentationToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.documentationToolStripMenuItem.Text = "Documentation";
+
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
             this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
+
             // 
             // cameraToolStripMenuItem
             // 
@@ -223,6 +233,7 @@
             this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
             this.cameraToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.cameraToolStripMenuItem.Text = "Camera";
+
             // 
             // selectDirectoryToolStripMenuItem
             // 
@@ -233,37 +244,38 @@
             // 
             // Prev_btn
             // 
-            this.Prev_btn.Location = new System.Drawing.Point(557, 530);
+            this.Prev_btn.Location = new System.Drawing.Point(584, 530);
             this.Prev_btn.Name = "Prev_btn";
             this.Prev_btn.Size = new System.Drawing.Size(75, 23);
             this.Prev_btn.TabIndex = 10;
-            this.Prev_btn.Text = "PREV";
+            this.Prev_btn.Text = "<    PREV";
             this.Prev_btn.UseVisualStyleBackColor = true;
             this.Prev_btn.Click += new System.EventHandler(this.Prev_btn_Click);
             // 
             // Next_btn
             // 
-            this.Next_btn.Location = new System.Drawing.Point(654, 530);
+            this.Next_btn.Location = new System.Drawing.Point(665, 530);
             this.Next_btn.Name = "Next_btn";
             this.Next_btn.Size = new System.Drawing.Size(75, 23);
             this.Next_btn.TabIndex = 12;
-            this.Next_btn.Text = "NEXT";
+            this.Next_btn.Text = "NEXT    >";
             this.Next_btn.UseVisualStyleBackColor = true;
             this.Next_btn.Click += new System.EventHandler(this.Next_btn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(273, 535);
+            this.label1.Location = new System.Drawing.Point(9, 317);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "File Name :";
+
             // 
             // FileNameLabel
             // 
             this.FileNameLabel.AutoSize = true;
-            this.FileNameLabel.Location = new System.Drawing.Point(339, 535);
+            this.FileNameLabel.Location = new System.Drawing.Point(75, 317);
             this.FileNameLabel.Name = "FileNameLabel";
             this.FileNameLabel.Size = new System.Drawing.Size(0, 13);
             this.FileNameLabel.TabIndex = 14;
@@ -277,6 +289,13 @@
             this.refresh_btn.Text = "REFRESH";
             this.refresh_btn.UseVisualStyleBackColor = true;
             this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.printToolStripMenuItem.Text = "Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -335,6 +354,7 @@
         private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectDirectoryToolStripMenuItem;
         private System.Windows.Forms.Button refresh_btn;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
     }
 }
 
