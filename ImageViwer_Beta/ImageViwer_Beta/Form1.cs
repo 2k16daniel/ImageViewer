@@ -41,6 +41,42 @@ namespace ImageViwer_Beta
             imagelist.Clear();
             Globals.CameraGlobalDirectory = CamDir;
         }
+        public void ShowInfoImage()
+        {
+            // Read from file
+            MagickImageInfo info = new MagickImageInfo(imagelist[ImageListview.FocusedItem.Index]);
+            
+            System.Diagnostics.Debug.WriteLine(info.Width);
+            System.Diagnostics.Debug.WriteLine(info.Height);
+            System.Diagnostics.Debug.WriteLine(info.ColorSpace);
+            System.Diagnostics.Debug.WriteLine(info.Format);
+            System.Diagnostics.Debug.WriteLine(info.Density.X);
+            System.Diagnostics.Debug.WriteLine(info.Density.Y);
+            System.Diagnostics.Debug.WriteLine(info.Density.Units);
+            label2.Text =  string.Join(Environment.CommandLine, info.Width);
+            label3.Text = string.Join(Environment.CommandLine, info.Height);
+            label4.Text = string.Join(Environment.CommandLine, info.ColorSpace);
+            label5.Text = string.Join(Environment.CommandLine, info.Format);
+            label6.Text = string.Join(Environment.CommandLine, info.Density.X);
+            label7.Text = string.Join(Environment.CommandLine, info.Density.Y);
+            label8.Text = string.Join(Environment.CommandLine, info.Density.Units);
+
+
+        }
+        public void ShowInfoImageBtn()
+        {
+            // Read from file
+            MagickImageInfo info = new MagickImageInfo(imagelist[pCurrentImage]);
+            label2.Text = string.Join(Environment.CommandLine, info.Width);
+            label3.Text = string.Join(Environment.CommandLine, info.Height);
+            label4.Text = string.Join(Environment.CommandLine, info.ColorSpace);
+            label5.Text = string.Join(Environment.CommandLine, info.Format);
+            label6.Text = string.Join(Environment.CommandLine, info.Density.X);
+            label7.Text = string.Join(Environment.CommandLine, info.Density.Y);
+            label8.Text = string.Join(Environment.CommandLine, info.Density.Units);
+
+
+        }
 
         public void RefreshImageFromListView()
         {
@@ -120,6 +156,7 @@ namespace ImageViwer_Beta
                     Image img = Image.FromFile(imagelist[ImageListview.FocusedItem.Index]);
                     photobox = img;
                     FileNameLabel.Text = Path.GetFileName(imagelist[ImageListview.FocusedItem.Index]);
+                    ShowInfoImage();
                 }
                 catch (Exception ex)
                 {
@@ -262,7 +299,8 @@ namespace ImageViwer_Beta
                 Image img = Image.FromFile(imagelist[pCurrentImage]);
                 photobox = img;
                 FileNameLabel.Text = Path.GetFileName(imagelist[pCurrentImage]);
-                
+                ShowInfoImageBtn();
+
             }
         }
 
