@@ -45,14 +45,6 @@ namespace ImageViwer_Beta
         {
             // Read from file
             MagickImageInfo info = new MagickImageInfo(imagelist[ImageListview.FocusedItem.Index]);
-            
-            System.Diagnostics.Debug.WriteLine(info.Width);
-            System.Diagnostics.Debug.WriteLine(info.Height);
-            System.Diagnostics.Debug.WriteLine(info.ColorSpace);
-            System.Diagnostics.Debug.WriteLine(info.Format);
-            System.Diagnostics.Debug.WriteLine(info.Density.X);
-            System.Diagnostics.Debug.WriteLine(info.Density.Y);
-            System.Diagnostics.Debug.WriteLine(info.Density.Units);
             label2.Text =  string.Join(Environment.CommandLine, info.Width);
             label3.Text = string.Join(Environment.CommandLine, info.Height);
             label4.Text = string.Join(Environment.CommandLine, info.ColorSpace);
@@ -67,6 +59,20 @@ namespace ImageViwer_Beta
         {
             // Read from file
             MagickImageInfo info = new MagickImageInfo(imagelist[pCurrentImage]);
+            label2.Text = string.Join(Environment.CommandLine, info.Width);
+            label3.Text = string.Join(Environment.CommandLine, info.Height);
+            label4.Text = string.Join(Environment.CommandLine, info.ColorSpace);
+            label5.Text = string.Join(Environment.CommandLine, info.Format);
+            label6.Text = string.Join(Environment.CommandLine, info.Density.X);
+            label7.Text = string.Join(Environment.CommandLine, info.Density.Y);
+            label8.Text = string.Join(Environment.CommandLine, info.Density.Units);
+
+
+        }
+        public void showinfoRawImage()
+        {
+            // Read from file
+            MagickImageInfo info = new MagickImageInfo(rawImage);
             label2.Text = string.Join(Environment.CommandLine, info.Width);
             label3.Text = string.Join(Environment.CommandLine, info.Height);
             label4.Text = string.Join(Environment.CommandLine, info.ColorSpace);
@@ -352,6 +358,7 @@ namespace ImageViwer_Beta
                         Image img = Image.FromFile(newfn);
                         photobox = img;
                         label1.Text = oldfn;
+                        showinfoRawImage();
                     }
                 }
                 catch (MagickCoderErrorException errorCodec)
